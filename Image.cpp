@@ -4,6 +4,7 @@ namespace prog
 {
     Image::Image(int w, int h, const Color &fill)
     {
+        
         image.assign(h, std::vector<Color>(w, fill));
     }
 
@@ -28,12 +29,11 @@ namespace prog
 
     Color& Image::at(int x, int y)
     {
-        
-        return DUMMY_color;
+        return image[y][x];
     }
 
     const Color& Image::at(int x, int y) const
     {
-        return DUMMY_color;
+        return image[y][x];
     }
 }
