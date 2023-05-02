@@ -4,8 +4,6 @@ namespace prog
 {
     Image::Image(int w, int h, const Color &fill)
     {
-        w = w_;
-        h = h_;
         std::vector<std::vector<Color>> image (h, std::vector<Color> (w, fill));
     }
 
@@ -15,12 +13,12 @@ namespace prog
 
     int Image::width() const
     {
-        return w_;
+        return (int)image.size();
     }
 
     int Image::height() const
     {
-        return h_;
+        return (int)image[0].size();
     }
 
     // TODO: remove this DUMMY_color variable once you have appropriate fields for representing image pixels.
@@ -35,4 +33,8 @@ namespace prog
     {
         return image[y][x];
     }
+}
+
+int main() {
+    {}
 }
