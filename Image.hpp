@@ -10,6 +10,7 @@ namespace prog
     {
     private:
         // TODO: define private fields for image state
+        int width_, height_;
         std::vector<std::vector<Color>> image;
 
     public:
