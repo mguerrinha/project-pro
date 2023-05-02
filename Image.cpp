@@ -13,7 +13,7 @@ namespace prog
 
     int Image::width() const
     {
-        int w_max = image[0].size();
+        int w_max = (int)image[0].size();
         return w_max;
     }
 
@@ -28,6 +28,7 @@ namespace prog
 
     Color& Image::at(int x, int y)
     {
+        
         return DUMMY_color;
     }
 
