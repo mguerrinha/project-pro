@@ -2,9 +2,12 @@
 
 namespace prog
 {
-   Image::Image(int w, int h, const Color& fill)
-    : width_(w), height_(h), image(h, std::vector<Color>(w, fill))
-{}
+    Image::Image(int w, int h, const Color& fill)
+    {
+        width_ = w;
+        height_ = h;
+        image = std::vector<std::vector<Color>>(h, std::vector<Color>(w, fill));
+    }
 
     Image::~Image()
     {

@@ -1,102 +1,17 @@
 >>>> [1] basic_blank1 <<<<
 Executing command 'blank' ...
 Executing command 'save' ...
-=================================================================
-==12138==ERROR: AddressSanitizer: requested allocation size 0xfffffffffffffffd (0x800 after adjustments for alignment, red zones etc.) exceeds maximum supported size of 0x10000000000 (thread T0)
-    #0 0x7eff958b4867 in __interceptor_malloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:145
-    #1 0x5604f4250688 in stbi_write_png_to_mem stb/stb_image_write.h:1145
-    #2 0x5604f42528bd in stbi_write_png stb/stb_image_write.h:1219
-    #3 0x5604f425c50f in prog::saveToPNG(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, prog::Image const*) /home/miguel/projetos_git/project-pro/PNG.cpp:44
-    #4 0x5604f4218db8 in prog::Script::save() /home/miguel/projetos_git/project-pro/Script.cpp:74
-    #5 0x5604f4217bfa in prog::Script::run() /home/miguel/projetos_git/project-pro/Script.cpp:48
-    #6 0x5604f420927b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/miguel/projetos_git/project-pro/test.cpp:43
-    #7 0x5604f420a07d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/miguel/projetos_git/project-pro/test.cpp:79
-    #8 0x5604f420bef3 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/miguel/projetos_git/project-pro/test.cpp:165
-    #9 0x5604f4208340 in main /home/miguel/projetos_git/project-pro/test.cpp:186
-    #10 0x7eff94829d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
-
-==12138==HINT: if you don't care about these errors you may set allocator_may_return_null=1
-SUMMARY: AddressSanitizer: allocation-size-too-big ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:145 in __interceptor_malloc
-==12138==ABORTING
 >>>> [2] basic_blank2 <<<<
 Executing command 'blank' ...
 Executing command 'save' ...
-=================================================================
-==12139==ERROR: AddressSanitizer: requested allocation size 0xfffffffffffffffd (0x800 after adjustments for alignment, red zones etc.) exceeds maximum supported size of 0x10000000000 (thread T0)
-    #0 0x7eff958b4867 in __interceptor_malloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:145
-    #1 0x5604f4250688 in stbi_write_png_to_mem stb/stb_image_write.h:1145
-    #2 0x5604f42528bd in stbi_write_png stb/stb_image_write.h:1219
-    #3 0x5604f425c50f in prog::saveToPNG(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, prog::Image const*) /home/miguel/projetos_git/project-pro/PNG.cpp:44
-    #4 0x5604f4218db8 in prog::Script::save() /home/miguel/projetos_git/project-pro/Script.cpp:74
-    #5 0x5604f4217bfa in prog::Script::run() /home/miguel/projetos_git/project-pro/Script.cpp:48
-    #6 0x5604f420927b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/miguel/projetos_git/project-pro/test.cpp:43
-    #7 0x5604f420a07d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/miguel/projetos_git/project-pro/test.cpp:79
-    #8 0x5604f420bef3 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/miguel/projetos_git/project-pro/test.cpp:165
-    #9 0x5604f4208340 in main /home/miguel/projetos_git/project-pro/test.cpp:186
-    #10 0x7eff94829d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
-
-==12139==HINT: if you don't care about these errors you may set allocator_may_return_null=1
-SUMMARY: AddressSanitizer: allocation-size-too-big ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:145 in __interceptor_malloc
-==12139==ABORTING
 >>>> [3] basic_blank3 <<<<
 Executing command 'blank' ...
 Executing command 'blank' ...
 Executing command 'save' ...
-=================================================================
-==12140==ERROR: AddressSanitizer: requested allocation size 0xfffffffffffffffd (0x800 after adjustments for alignment, red zones etc.) exceeds maximum supported size of 0x10000000000 (thread T0)
-    #0 0x7eff958b4867 in __interceptor_malloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:145
-    #1 0x5604f4250688 in stbi_write_png_to_mem stb/stb_image_write.h:1145
-    #2 0x5604f42528bd in stbi_write_png stb/stb_image_write.h:1219
-    #3 0x5604f425c50f in prog::saveToPNG(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, prog::Image const*) /home/miguel/projetos_git/project-pro/PNG.cpp:44
-    #4 0x5604f4218db8 in prog::Script::save() /home/miguel/projetos_git/project-pro/Script.cpp:74
-    #5 0x5604f4217bfa in prog::Script::run() /home/miguel/projetos_git/project-pro/Script.cpp:48
-    #6 0x5604f420927b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/miguel/projetos_git/project-pro/test.cpp:43
-    #7 0x5604f420a07d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/miguel/projetos_git/project-pro/test.cpp:79
-    #8 0x5604f420bef3 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/miguel/projetos_git/project-pro/test.cpp:165
-    #9 0x5604f4208340 in main /home/miguel/projetos_git/project-pro/test.cpp:186
-    #10 0x7eff94829d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
-
-==12140==HINT: if you don't care about these errors you may set allocator_may_return_null=1
-SUMMARY: AddressSanitizer: allocation-size-too-big ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:145 in __interceptor_malloc
-==12140==ABORTING
 >>>> [4] basic_open1 <<<<
 Executing command 'open' ...
 Executing command 'save' ...
-=================================================================
-==12141==ERROR: AddressSanitizer: requested allocation size 0xfffffffffffffffd (0x800 after adjustments for alignment, red zones etc.) exceeds maximum supported size of 0x10000000000 (thread T0)
-    #0 0x7eff958b4867 in __interceptor_malloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:145
-    #1 0x5604f4250688 in stbi_write_png_to_mem stb/stb_image_write.h:1145
-    #2 0x5604f42528bd in stbi_write_png stb/stb_image_write.h:1219
-    #3 0x5604f425c50f in prog::saveToPNG(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, prog::Image const*) /home/miguel/projetos_git/project-pro/PNG.cpp:44
-    #4 0x5604f4218db8 in prog::Script::save() /home/miguel/projetos_git/project-pro/Script.cpp:74
-    #5 0x5604f4217bfa in prog::Script::run() /home/miguel/projetos_git/project-pro/Script.cpp:48
-    #6 0x5604f420927b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/miguel/projetos_git/project-pro/test.cpp:43
-    #7 0x5604f420a07d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/miguel/projetos_git/project-pro/test.cpp:79
-    #8 0x5604f420bef3 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/miguel/projetos_git/project-pro/test.cpp:165
-    #9 0x5604f4208340 in main /home/miguel/projetos_git/project-pro/test.cpp:186
-    #10 0x7eff94829d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
-
-==12141==HINT: if you don't care about these errors you may set allocator_may_return_null=1
-SUMMARY: AddressSanitizer: allocation-size-too-big ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:145 in __interceptor_malloc
-==12141==ABORTING
 >>>> [5] basic_open2 <<<<
 Executing command 'open' ...
 Executing command 'open' ...
 Executing command 'save' ...
-=================================================================
-==12142==ERROR: AddressSanitizer: requested allocation size 0xfffffffffffffffd (0x800 after adjustments for alignment, red zones etc.) exceeds maximum supported size of 0x10000000000 (thread T0)
-    #0 0x7eff958b4867 in __interceptor_malloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:145
-    #1 0x5604f4250688 in stbi_write_png_to_mem stb/stb_image_write.h:1145
-    #2 0x5604f42528bd in stbi_write_png stb/stb_image_write.h:1219
-    #3 0x5604f425c50f in prog::saveToPNG(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, prog::Image const*) /home/miguel/projetos_git/project-pro/PNG.cpp:44
-    #4 0x5604f4218db8 in prog::Script::save() /home/miguel/projetos_git/project-pro/Script.cpp:74
-    #5 0x5604f4217bfa in prog::Script::run() /home/miguel/projetos_git/project-pro/Script.cpp:48
-    #6 0x5604f420927b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/miguel/projetos_git/project-pro/test.cpp:43
-    #7 0x5604f420a07d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/miguel/projetos_git/project-pro/test.cpp:79
-    #8 0x5604f420bef3 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/miguel/projetos_git/project-pro/test.cpp:165
-    #9 0x5604f4208340 in main /home/miguel/projetos_git/project-pro/test.cpp:186
-    #10 0x7eff94829d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
-
-==12142==HINT: if you don't care about these errors you may set allocator_may_return_null=1
-SUMMARY: AddressSanitizer: allocation-size-too-big ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:145 in __interceptor_malloc
-==12142==ABORTING
