@@ -73,4 +73,8 @@ namespace prog {
         input >> filename;
         saveToPNG(filename, image);
     }
+
+    void Script::invert() {
+         
+    }
 }
