@@ -6,7 +6,7 @@ namespace prog
     {
         width_ = w;
         height_ = h;
-        image = std::vector<std::vector<Color>>(h, std::vector<Color>(w, fill));
+        pixels = std::vector<std::vector<Color>>(h, std::vector<Color>(w, fill));
     }
 
     Image::~Image()
@@ -28,11 +28,11 @@ namespace prog
 
     Color& Image::at(int x, int y)
     {
-        return image[y][x];
+        return pixels[y][x];
     }
 
     const Color& Image::at(int x, int y) const
     {
-        return image[y][x];
+        return pixels[y][x];
     }
 }

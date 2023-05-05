@@ -3,6 +3,7 @@
 #include "Script.hpp"
 #include "PNG.hpp"
 #include "XPM2.hpp"
+#include <algorithm>
 
 using namespace std;
 
@@ -48,7 +49,14 @@ namespace prog {
                 save();
                 continue;
             } 
-            // TODO ...
+            if (command == "h_mirror") {
+                h_mirror();
+                continue;
+            }
+            if (command == "v_mirror") {
+                v_mirror();
+                continue;
+            }
 
         }
     }
@@ -76,5 +84,23 @@ namespace prog {
 
     void Script::invert() {
          
+    }
+
+    void Script::h_mirror() {
+        for (int row = 0; row < image->height(); row++) {
+            int middle_col = image->width() / 2;    // middle column index
+        for (int col = 0; col < middle_col; col++) {   // iterate up until middle column
+            std::swap(image->at(col, row), image->at(image->width() - 1 - col, row));
+        }
+    }
+    }
+
+    void Script::v_mirror() {
+        for (int col = 0; col < image->width(); col++) {
+            int middle_row = image->height() / 2;   // middle row index
+        for (int row = 0; row < middle_row; row++) {
+            std::swap(image->at(col, row), image->at(col, image->height() - 1 - row));
+        }
+        }
     }
 }
