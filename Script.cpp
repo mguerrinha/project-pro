@@ -57,6 +57,10 @@ namespace prog {
                 v_mirror();
                 continue;
             }
+            if (command == "crop") {
+                crop();
+                continue;
+            }
 
         }
     }
@@ -88,19 +92,32 @@ namespace prog {
 
     void Script::h_mirror() {
         for (int row = 0; row < image->height(); row++) {
-            int middle_col = image->width() / 2;    // middle column index
-        for (int col = 0; col < middle_col; col++) {   // iterate up until middle column
-            std::swap(image->at(col, row), image->at(image->width() - 1 - col, row));
+            int middle_col = image->width() / 2;    // index da coluna do meio
+            for (int col = 0; col < middle_col; col++) {   // itera até à coluna do meio
+                std::swap(image->at(col, row), image->at(image->width() - 1 - col, row));
+            }
         }
-    }
     }
 
     void Script::v_mirror() {
         for (int col = 0; col < image->width(); col++) {
-            int middle_row = image->height() / 2;   // middle row index
-        for (int row = 0; row < middle_row; row++) {
-            std::swap(image->at(col, row), image->at(col, image->height() - 1 - row));
+            int middle_row = image->height() / 2;   // index da linha do meio
+            for (int row = 0; row < middle_row; row++) {    // itera até à linha do meio
+                std::swap(image->at(col, row), image->at(col, image->height() - 1 - row));
+            }
         }
+    }
+
+    void Script::crop() {
+        int x, y, w, h;
+        input >> x >> y >> w >> h;
+        Image *cropped_image = new Image(w, h);
+        for (int row = y; row < y+h; row++) {
+            for(int col = x; col < x+w; col++) {
+                cropped_image->at(col-x, row-y) = image->at(col, row);
+            }
         }
+        clear_image_if_any();
+        image = cropped_image;
     }
 }
