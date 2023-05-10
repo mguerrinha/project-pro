@@ -61,6 +61,14 @@ namespace prog {
                 crop();
                 continue;
             }
+            if (command == "rotate_left") {
+                rotate_left();
+                continue;
+            }
+            if (command == "rotate_right") {
+                rotate_right();
+                continue;
+            }
 
         }
     }
@@ -94,7 +102,7 @@ namespace prog {
         for (int row = 0; row < image->height(); row++) {
             int middle_col = image->width() / 2;    // index da coluna do meio
             for (int col = 0; col < middle_col; col++) {   // itera até à coluna do meio
-                std::swap(image->at(col, row), image->at(image->width() - 1 - col, row));
+                std::swap(image->at(col, row), image->at(image->width() - 1 - col, row));   
             }
         }
     }
@@ -119,5 +127,22 @@ namespace prog {
         }
         clear_image_if_any();
         image = cropped_image;
+    }
+
+    void Script::rotate_left() {
+        Image *rotate90 = new Image(image->height(), image->width());
+        for (int row = 0; row < (int)image->height(); row++) {
+            for (int col = 0; col < (int)image->width(); col++) {
+                rotate90->at(row, col) = image->at(image->width()-col-1, row);
+            }
+        }
+        clear_image_if_any();
+        image = rotate90;
+    }
+
+    void Script::rotate_right() {
+        rotate_left();
+        rotate_left();
+        rotate_left();
     }
 }

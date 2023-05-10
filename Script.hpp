@@ -28,6 +28,8 @@ namespace prog
         void h_mirror();
         void v_mirror();
         void crop();
+        void rotate_left();
+        void rotate_right();
     };
 }
 #endif
