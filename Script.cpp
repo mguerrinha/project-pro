@@ -119,7 +119,7 @@ namespace prog {
     void Script::crop() {
         int x, y, w, h;
         input >> x >> y >> w >> h;
-        Image *cropped_image = new Image(w, h);
+        Image *cropped_image = new Image(w, h); // imagem onde vai ser gravado o resultado
         for (int row = y; row < y+h; row++) {
             for(int col = x; col < x+w; col++) {
                 cropped_image->at(col-x, row-y) = image->at(col, row);
@@ -130,7 +130,7 @@ namespace prog {
     }
 
     void Script::rotate_left() {
-        Image *rotate90 = new Image(image->height(), image->width());
+        Image *rotate90 = new Image(image->height(), image->width());   // imagem onde vai ser guardado o resultado
         for (int row = 0; row < (int)image->height(); row++) {
             for (int col = 0; col < (int)image->width(); col++) {
                 rotate90->at(row, col) = image->at(image->width()-col-1, row);
@@ -141,8 +141,13 @@ namespace prog {
     }
 
     void Script::rotate_right() {
-        rotate_left();
-        rotate_left();
-        rotate_left();
+        Image *rotate90 = new Image(image->height(), image->width());   // imagem onde vai ser guardado o resultado
+        for (int row = 0; row < (int)image->height(); row++) {
+            for (int col = 0; col < (int)image->width(); col++) {
+                rotate90->at(row, col) = image->at(col, image->height()-row-1);
+            }
+        }
+        clear_image_if_any();
+        image = rotate90;
     }
 }
