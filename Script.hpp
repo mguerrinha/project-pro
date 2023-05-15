@@ -25,6 +25,8 @@ namespace prog
         void blank();
         void save();
         void invert();
+        void to_gray_scale();
+        void replace();
         void h_mirror();
         void v_mirror();
         void crop();
