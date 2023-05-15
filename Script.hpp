@@ -33,5 +33,6 @@ namespace prog
         void rotate_left();
         void rotate_right();
     };
+    
 }
 #endif
