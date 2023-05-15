@@ -49,6 +49,18 @@ namespace prog {
                 save();
                 continue;
             } 
+            if (command == "invert"){
+                invert();
+                continue;
+            }
+            if (command == "to_gray_scale"){
+                to_gray_scale();
+                continue;
+            }
+            if (command == "replace"){
+                replace();
+                continue;
+            }
             if (command == "h_mirror") {
                 h_mirror();
                 continue;
@@ -116,6 +128,23 @@ namespace prog {
             }
         }
     }
+
+    void Script::replace() {
+        unsigned int r1, g1, b1, r2, g2, b2;
+        input >> r1 >> g1 >> b1 >> r2 >> g2 >> b2;
+        for(int row = 0; row < image->height(); row++){
+            for(int col = 0; col < image->width(); col++){
+                unsigned int r=image->at(col,row).red();
+                unsigned int g=image->at(col,row).green();
+                unsigned int b=image->at(col,row).blue();
+                if(r==r1 && g==g1 && b==b1){
+                    image->at(col,row).red()=r2;
+                    image->at(col,row).green()=g2; 
+                    image->at(col,row).blue()=b2;
+                }
+            }
+        }
+    }    
 
     void Script::h_mirror() {
         for (int row = 0; row < image->height(); row++) {
