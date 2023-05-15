@@ -95,7 +95,26 @@ namespace prog {
     }
 
     void Script::invert() {
-         
+        for(int row = 0; row < image->height(); row++){
+            for(int col = 0; col < image->width(); col++){
+                image->at(col,row).red()=255-image->at(col,row).red();
+                image->at(col,row).green()=255-image->at(col,row).green();
+                image->at(col,row).blue()=255-image->at(col,row).blue();
+            }
+        }    
+    }
+
+    void Script::to_gray_scale() {
+        for(int row = 0; row < image->height(); row++){
+            for(int col = 0; col < image->width(); col++){
+                unsigned int r=image->at(col,row).red();
+                unsigned int g=image->at(col,row).green();
+                unsigned int b=image->at(col,row).blue();
+                image->at(col,row).red()=(r+g+b)/3;
+                image->at(col,row).green()=(r+g+b)/3;
+                image->at(col,row).blue()=(r+g+b)/3;
+            }
+        }
     }
 
     void Script::h_mirror() {
