@@ -105,7 +105,6 @@ namespace prog {
                 median_filter();
                 continue;
             }
-
         }
     }
     void Script::open() {
@@ -216,7 +215,7 @@ namespace prog {
                 }
             }
         }
-        clear_image_if_any();
+        delete imagem;
     }
 
     void Script::crop() {
@@ -252,5 +251,9 @@ namespace prog {
         }
         clear_image_if_any();
         image = rotate90;
+    }
+
+    void Script::median_filter() {
+
     }
 }

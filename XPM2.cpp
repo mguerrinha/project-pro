@@ -66,6 +66,35 @@ namespace prog {
         return image;
     }
 
+    string int_to_hex(int value) {
+        std::string res = "";
+        char ch;
+        int aux;
+        for (int i = 0; i < 2; i++) {
+            aux = value % 16;
+            if (aux >= 0 && aux <= 9) {
+                ch = aux + '0';
+            }
+            else if (aux >= 10 && aux <= 15) {
+                ch = aux + 'a';
+            }
+            res.push_back(ch);
+            value /= 16;
+        }
+        swap(res[1], res[0]);
+        return res;
+    }
+
+    string color_to_hex(const Color& color) {
+        int r = color.red(), g = color.green(), b = color.blue();
+        std::string res;
+        res.append('#');
+        res.push_back(int_to_hex(r));
+        res.push_back(int_to_hex(g));
+        res.push_back(int_to_hex(b));
+        return res;
+    }
+
     void saveToXPM2(const std::string& file, const Image* image) {
         
     }

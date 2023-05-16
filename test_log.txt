@@ -325,176 +325,21 @@ Executing command 'v_mirror' ...
 Executing command 'save' ...
 >>>> [57] xpm2_open1 <<<<
 Executing command 'xpm2_open' ...
-Executing command 'input/blarg.xpm' ...
 Executing command 'save' ...
-PNG.cpp:31:30: runtime error: member call on null pointer of type 'const struct Image'
-Image.cpp:23:16: runtime error: member access within null pointer of type 'const struct Image'
-AddressSanitizer:DEADLYSIGNAL
-=================================================================
-==20312==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000004 (pc 0x5654a3ff057b bp 0x7ffd9ff80b40 sp 0x7ffd9ff80b30 T0)
-==20312==The signal is caused by a READ memory access.
-==20312==Hint: address points to the zero page.
-    #0 0x5654a3ff057b in prog::Image::height() const /mnt/c/Users/35191/OneDrive - Universidade do Porto/Ambiente de Trabalho/School/Faculdade/Programação/cpp-workspace/project novo/Image.cpp:23
-    #1 0x5654a4041bd7 in prog::saveToPNG(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, prog::Image const*) /mnt/c/Users/35191/OneDrive - Universidade do Porto/Ambiente de Trabalho/School/Faculdade/Programação/cpp-workspace/project novo/PNG.cpp:31
-    #2 0x5654a3ff800a in prog::Script::save() /mnt/c/Users/35191/OneDrive - Universidade do Porto/Ambiente de Trabalho/School/Faculdade/Programação/cpp-workspace/project novo/Script.cpp:114
-    #3 0x5654a3ff6aab in prog::Script::run() /mnt/c/Users/35191/OneDrive - Universidade do Porto/Ambiente de Trabalho/School/Faculdade/Programação/cpp-workspace/project novo/Script.cpp:49
-    #4 0x5654a3fe229b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0x8829b)
-    #5 0x5654a3fe309d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0x8909d)
-    #6 0x5654a3fe4f13 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0x8af13)
-    #7 0x5654a3fe1360 in main /mnt/c/Users/35191/OneDrive - Universidade do Porto/Ambiente de Trabalho/School/Faculdade/Programação/cpp-workspace/project novo/test.cpp:186
-    #8 0x7f3851829d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
-    #9 0x7f3851829e3f in __libc_start_main_impl ../csu/libc-start.c:392
-    #10 0x5654a3fe0ef4 in _start (/home/miguel/projetos_git/project-pro/test+0x86ef4)
-
-AddressSanitizer can not provide additional info.
-SUMMARY: AddressSanitizer: SEGV /mnt/c/Users/35191/OneDrive - Universidade do Porto/Ambiente de Trabalho/School/Faculdade/Programação/cpp-workspace/project novo/Image.cpp:23 in prog::Image::height() const
-==20312==ABORTING
 >>>> [58] xpm2_open2 <<<<
 Executing command 'xpm2_open' ...
-Executing command 'input/squares.xpm' ...
 Executing command 'save' ...
-PNG.cpp:31:30: runtime error: member call on null pointer of type 'const struct Image'
-Image.cpp:23:16: runtime error: member access within null pointer of type 'const struct Image'
-AddressSanitizer:DEADLYSIGNAL
-=================================================================
-==20313==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000004 (pc 0x5654a3ff057b bp 0x7ffd9ff80b40 sp 0x7ffd9ff80b30 T0)
-==20313==The signal is caused by a READ memory access.
-==20313==Hint: address points to the zero page.
-    #0 0x5654a3ff057b in prog::Image::height() const /mnt/c/Users/35191/OneDrive - Universidade do Porto/Ambiente de Trabalho/School/Faculdade/Programação/cpp-workspace/project novo/Image.cpp:23
-    #1 0x5654a4041bd7 in prog::saveToPNG(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, prog::Image const*) /mnt/c/Users/35191/OneDrive - Universidade do Porto/Ambiente de Trabalho/School/Faculdade/Programação/cpp-workspace/project novo/PNG.cpp:31
-    #2 0x5654a3ff800a in prog::Script::save() /mnt/c/Users/35191/OneDrive - Universidade do Porto/Ambiente de Trabalho/School/Faculdade/Programação/cpp-workspace/project novo/Script.cpp:114
-    #3 0x5654a3ff6aab in prog::Script::run() /mnt/c/Users/35191/OneDrive - Universidade do Porto/Ambiente de Trabalho/School/Faculdade/Programação/cpp-workspace/project novo/Script.cpp:49
-    #4 0x5654a3fe229b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0x8829b)
-    #5 0x5654a3fe309d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0x8909d)
-    #6 0x5654a3fe4f13 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0x8af13)
-    #7 0x5654a3fe1360 in main /mnt/c/Users/35191/OneDrive - Universidade do Porto/Ambiente de Trabalho/School/Faculdade/Programação/cpp-workspace/project novo/test.cpp:186
-    #8 0x7f3851829d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
-    #9 0x7f3851829e3f in __libc_start_main_impl ../csu/libc-start.c:392
-    #10 0x5654a3fe0ef4 in _start (/home/miguel/projetos_git/project-pro/test+0x86ef4)
-
-AddressSanitizer can not provide additional info.
-SUMMARY: AddressSanitizer: SEGV /mnt/c/Users/35191/OneDrive - Universidade do Porto/Ambiente de Trabalho/School/Faculdade/Programação/cpp-workspace/project novo/Image.cpp:23 in prog::Image::height() const
-==20313==ABORTING
 >>>> [59] xpm2_open3 <<<<
 Executing command 'xpm2_open' ...
-Executing command 'input/tetris.xpm' ...
 Executing command 'save' ...
-PNG.cpp:31:30: runtime error: member call on null pointer of type 'const struct Image'
-Image.cpp:23:16: runtime error: member access within null pointer of type 'const struct Image'
-AddressSanitizer:DEADLYSIGNAL
-=================================================================
-==20314==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000004 (pc 0x5654a3ff057b bp 0x7ffd9ff80b40 sp 0x7ffd9ff80b30 T0)
-==20314==The signal is caused by a READ memory access.
-==20314==Hint: address points to the zero page.
-    #0 0x5654a3ff057b in prog::Image::height() const /mnt/c/Users/35191/OneDrive - Universidade do Porto/Ambiente de Trabalho/School/Faculdade/Programação/cpp-workspace/project novo/Image.cpp:23
-    #1 0x5654a4041bd7 in prog::saveToPNG(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, prog::Image const*) /mnt/c/Users/35191/OneDrive - Universidade do Porto/Ambiente de Trabalho/School/Faculdade/Programação/cpp-workspace/project novo/PNG.cpp:31
-    #2 0x5654a3ff800a in prog::Script::save() /mnt/c/Users/35191/OneDrive - Universidade do Porto/Ambiente de Trabalho/School/Faculdade/Programação/cpp-workspace/project novo/Script.cpp:114
-    #3 0x5654a3ff6aab in prog::Script::run() /mnt/c/Users/35191/OneDrive - Universidade do Porto/Ambiente de Trabalho/School/Faculdade/Programação/cpp-workspace/project novo/Script.cpp:49
-    #4 0x5654a3fe229b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0x8829b)
-    #5 0x5654a3fe309d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0x8909d)
-    #6 0x5654a3fe4f13 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0x8af13)
-    #7 0x5654a3fe1360 in main /mnt/c/Users/35191/OneDrive - Universidade do Porto/Ambiente de Trabalho/School/Faculdade/Programação/cpp-workspace/project novo/test.cpp:186
-    #8 0x7f3851829d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
-    #9 0x7f3851829e3f in __libc_start_main_impl ../csu/libc-start.c:392
-    #10 0x5654a3fe0ef4 in _start (/home/miguel/projetos_git/project-pro/test+0x86ef4)
-
-AddressSanitizer can not provide additional info.
-SUMMARY: AddressSanitizer: SEGV /mnt/c/Users/35191/OneDrive - Universidade do Porto/Ambiente de Trabalho/School/Faculdade/Programação/cpp-workspace/project novo/Image.cpp:23 in prog::Image::height() const
-==20314==ABORTING
 >>>> [60] xpm2_open4 <<<<
 Executing command 'xpm2_open' ...
-Executing command 'input/mondrian.xpm' ...
 Executing command 'save' ...
-PNG.cpp:31:30: runtime error: member call on null pointer of type 'const struct Image'
-Image.cpp:23:16: runtime error: member access within null pointer of type 'const struct Image'
-AddressSanitizer:DEADLYSIGNAL
-=================================================================
-==20315==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000004 (pc 0x5654a3ff057b bp 0x7ffd9ff80b40 sp 0x7ffd9ff80b30 T0)
-==20315==The signal is caused by a READ memory access.
-==20315==Hint: address points to the zero page.
-    #0 0x5654a3ff057b in prog::Image::height() const /mnt/c/Users/35191/OneDrive - Universidade do Porto/Ambiente de Trabalho/School/Faculdade/Programação/cpp-workspace/project novo/Image.cpp:23
-    #1 0x5654a4041bd7 in prog::saveToPNG(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, prog::Image const*) /mnt/c/Users/35191/OneDrive - Universidade do Porto/Ambiente de Trabalho/School/Faculdade/Programação/cpp-workspace/project novo/PNG.cpp:31
-    #2 0x5654a3ff800a in prog::Script::save() /mnt/c/Users/35191/OneDrive - Universidade do Porto/Ambiente de Trabalho/School/Faculdade/Programação/cpp-workspace/project novo/Script.cpp:114
-    #3 0x5654a3ff6aab in prog::Script::run() /mnt/c/Users/35191/OneDrive - Universidade do Porto/Ambiente de Trabalho/School/Faculdade/Programação/cpp-workspace/project novo/Script.cpp:49
-    #4 0x5654a3fe229b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0x8829b)
-    #5 0x5654a3fe309d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0x8909d)
-    #6 0x5654a3fe4f13 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0x8af13)
-    #7 0x5654a3fe1360 in main /mnt/c/Users/35191/OneDrive - Universidade do Porto/Ambiente de Trabalho/School/Faculdade/Programação/cpp-workspace/project novo/test.cpp:186
-    #8 0x7f3851829d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
-    #9 0x7f3851829e3f in __libc_start_main_impl ../csu/libc-start.c:392
-    #10 0x5654a3fe0ef4 in _start (/home/miguel/projetos_git/project-pro/test+0x86ef4)
-
-AddressSanitizer can not provide additional info.
-SUMMARY: AddressSanitizer: SEGV /mnt/c/Users/35191/OneDrive - Universidade do Porto/Ambiente de Trabalho/School/Faculdade/Programação/cpp-workspace/project novo/Image.cpp:23 in prog::Image::height() const
-==20315==ABORTING
 >>>> [61] xpm2_open5 <<<<
 Executing command 'xpm2_open' ...
-Executing command 'input/lion.xpm' ...
 Executing command 'save' ...
-PNG.cpp:31:30: runtime error: member call on null pointer of type 'const struct Image'
-Image.cpp:23:16: runtime error: member access within null pointer of type 'const struct Image'
-AddressSanitizer:DEADLYSIGNAL
-=================================================================
-==20316==ERROR: AddressSanitizer: SEGV on unknown address 0x000000000004 (pc 0x5654a3ff057b bp 0x7ffd9ff80b40 sp 0x7ffd9ff80b30 T0)
-==20316==The signal is caused by a READ memory access.
-==20316==Hint: address points to the zero page.
-    #0 0x5654a3ff057b in prog::Image::height() const /mnt/c/Users/35191/OneDrive - Universidade do Porto/Ambiente de Trabalho/School/Faculdade/Programação/cpp-workspace/project novo/Image.cpp:23
-    #1 0x5654a4041bd7 in prog::saveToPNG(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, prog::Image const*) /mnt/c/Users/35191/OneDrive - Universidade do Porto/Ambiente de Trabalho/School/Faculdade/Programação/cpp-workspace/project novo/PNG.cpp:31
-    #2 0x5654a3ff800a in prog::Script::save() /mnt/c/Users/35191/OneDrive - Universidade do Porto/Ambiente de Trabalho/School/Faculdade/Programação/cpp-workspace/project novo/Script.cpp:114
-    #3 0x5654a3ff6aab in prog::Script::run() /mnt/c/Users/35191/OneDrive - Universidade do Porto/Ambiente de Trabalho/School/Faculdade/Programação/cpp-workspace/project novo/Script.cpp:49
-    #4 0x5654a3fe229b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0x8829b)
-    #5 0x5654a3fe309d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0x8909d)
-    #6 0x5654a3fe4f13 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0x8af13)
-    #7 0x5654a3fe1360 in main /mnt/c/Users/35191/OneDrive - Universidade do Porto/Ambiente de Trabalho/School/Faculdade/Programação/cpp-workspace/project novo/test.cpp:186
-    #8 0x7f3851829d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
-    #9 0x7f3851829e3f in __libc_start_main_impl ../csu/libc-start.c:392
-    #10 0x5654a3fe0ef4 in _start (/home/miguel/projetos_git/project-pro/test+0x86ef4)
-
-AddressSanitizer can not provide additional info.
-SUMMARY: AddressSanitizer: SEGV /mnt/c/Users/35191/OneDrive - Universidade do Porto/Ambiente de Trabalho/School/Faculdade/Programação/cpp-workspace/project novo/Image.cpp:23 in prog::Image::height() const
-==20316==ABORTING
 >>>> [62] xpm2_save1 <<<<
 Executing command 'open' ...
 Executing command 'xpm2_save' ...
-Executing command 'output/xpm2_save1.xpm' ...
 Executing command 'blank' ...
 Executing command 'xpm2_open' ...
-Executing command 'output/xpm2_save1.xpm' ...
-Executing command 'save' ...
-Images have different dimensions: 16x7 != 1x1
->>>> [63] xpm2_save2 <<<<
-Executing command 'open' ...
-Executing command 'xpm2_save' ...
-Executing command 'output/xpm2_save2.xpm' ...
-Executing command 'blank' ...
-Executing command 'xpm2_open' ...
-Executing command 'output/xpm2_save2.xpm' ...
-Executing command 'save' ...
-Images have different dimensions: 150x150 != 1x1
->>>> [64] xpm2_save3 <<<<
-Executing command 'open' ...
-Executing command 'xpm2_save' ...
-Executing command 'output/xpm2_save3.xpm' ...
-Executing command 'blank' ...
-Executing command 'xpm2_open' ...
-Executing command 'output/xpm2_save3.xpm' ...
-Executing command 'save' ...
-Images have different dimensions: 300x300 != 1x1
->>>> [65] xpm2_save4 <<<<
-Executing command 'open' ...
-Executing command 'xpm2_save' ...
-Executing command 'output/xpm2_save4.xpm' ...
-Executing command 'blank' ...
-Executing command 'xpm2_open' ...
-Executing command 'output/xpm2_save4.xpm' ...
-Executing command 'save' ...
-Images have different dimensions: 270x480 != 1x1
->>>> [66] xpm2_save5 <<<<
-Executing command 'open' ...
-Executing command 'xpm2_save' ...
-Executing command 'output/xpm2_save5.xpm' ...
-Executing command 'blank' ...
-Executing command 'xpm2_open' ...
-Executing command 'output/xpm2_save5.xpm' ...
-Executing command 'save' ...
-Images have different dimensions: 250x380 != 1x1
