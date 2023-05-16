@@ -101,14 +101,6 @@ namespace prog {
                 saveToXPM2(file, image);
                 continue;
             }
-<<<<<<< HEAD
-            if (command == "median_filter") {
-                median_filter();
-                continue;
-            }
-=======
-
->>>>>>> 5cfd1b6794df695f6c79e976a1ec0af0c490f79e
         }
     }
     void Script::open() {
@@ -256,12 +248,4 @@ namespace prog {
         clear_image_if_any();
         image = rotate90;
     }
-<<<<<<< HEAD
-
-    void Script::median_filter() {
-
-    }
 }
-=======
-} 
->>>>>>> 5cfd1b6794df695f6c79e976a1ec0af0c490f79e
