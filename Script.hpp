@@ -32,6 +32,7 @@ namespace prog
         void crop();
         void rotate_left();
         void rotate_right();
+        void xpm2_open();
     };
     
 }

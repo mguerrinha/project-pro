@@ -81,6 +81,18 @@ namespace prog {
                 rotate_right();
                 continue;
             }
+            if (command == "xpm2_open") {
+                std::string file;
+                input >> file;
+                image = loadFromXPM2(file);
+                continue;
+            }
+            if (command == "xpm2_save") {
+                std::string file;
+                input >> file;
+                saveToXPM2(file, image);
+                continue;
+            }
 
         }
     }
