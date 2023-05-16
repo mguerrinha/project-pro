@@ -49,16 +49,20 @@ namespace prog {
                 save();
                 continue;
             } 
-            if (command == "invert"){
+            if (command == "invert") {
                 invert();
                 continue;
             }
-            if (command == "to_gray_scale"){
+            if (command == "to_gray_scale") {
                 to_gray_scale();
                 continue;
             }
             if (command == "replace"){
                 replace();
+                continue;
+            }
+            if (command == "fill") {
+                fill();
                 continue;
             }
             if (command == "h_mirror") {
@@ -67,6 +71,10 @@ namespace prog {
             }
             if (command == "v_mirror") {
                 v_mirror();
+                continue;
+            }
+            if (command == "add") {
+                add();
                 continue;
             }
             if (command == "crop") {
@@ -92,7 +100,7 @@ namespace prog {
         image = loadFromPNG(filename);
     }
     void Script::blank() {
-        // Replace current image (if any) with blank image.
+        // Replace current image ./tes(if any) with blank image.
         clear_image_if_any();
         int w, h;
         Color fill;
@@ -109,11 +117,11 @@ namespace prog {
     void Script::invert() {
         for(int row = 0; row < image->height(); row++){
             for(int col = 0; col < image->width(); col++){
-                image->at(col,row).red()=255-image->at(col,row).red();
-                image->at(col,row).green()=255-image->at(col,row).green();
-                image->at(col,row).blue()=255-image->at(col,row).blue();
+                image->at(col, row).red() = 255-image->at(col,row).red();
+                image->at(col, row).green() = 255-image->at(col, row).green();
+                image->at(col, row).blue() = 255-image->at(col, row).blue();
             }
-        }    
+        }
     }
 
     void Script::to_gray_scale() {
@@ -130,13 +138,13 @@ namespace prog {
     }
 
     void Script::replace() {
-        unsigned int r1, g1, b1, r2, g2, b2;
+        unsigned int r1, g1, b1, r2, g2, b2, r, g, b;
         input >> r1 >> g1 >> b1 >> r2 >> g2 >> b2;
         for(int row = 0; row < image->height(); row++){
             for(int col = 0; col < image->width(); col++){
-                unsigned int r=image->at(col,row).red();
-                unsigned int g=image->at(col,row).green();
-                unsigned int b=image->at(col,row).blue();
+                r=image->at(col,row).red();
+                g=image->at(col,row).green();
+                b=image->at(col,row).blue();
                 if(r==r1 && g==g1 && b==b1){
                     image->at(col,row).red()=r2;
                     image->at(col,row).green()=g2; 
@@ -144,7 +152,20 @@ namespace prog {
                 }
             }
         }
-    }    
+    }   
+
+    void Script::fill()  {
+        int x, y, w, h;
+        unsigned int r, g, b;
+        input >> x >> y >> w >> h >> r >> g >> b;
+        for(int row = y; row < h+y; row++){
+            for(int col = x; col < w+x; col++){
+                image->at(col, row).red() = r;
+                image->at(col, row).green() = g;
+                image->at(col, row).blue() = b;
+            }
+        }
+    }
 
     void Script::h_mirror() {
         for (int row = 0; row < image->height(); row++) {
@@ -162,6 +183,24 @@ namespace prog {
                 std::swap(image->at(col, row), image->at(col, image->height() - 1 - row));
             }
         }
+    }
+
+    void Script::add() {
+        string filename;
+        unsigned int r, g, b;
+        int x, y;
+        input >> filename >> r >> g >> b >> x >> y;
+        Image* imagem = loadFromPNG(filename);   
+        for (int col = 0; col < imagem->width(); col++){
+            for (int row = 0; row < imagem->height(); row++){
+                if(imagem->at(col,row).red() != r || imagem->at(col,row).green() != g || imagem->at(col,row).blue() != b){
+                    image->at(col+x,row+y).red() = imagem->at(col,row).red();
+                    image->at(col+x,row+y).blue() = imagem->at(col,row).blue();
+                    image->at(col+x,row+y).green() = imagem->at(col,row).green();
+                }
+            }
+        }
+        delete imagem;
     }
 
     void Script::crop() {
