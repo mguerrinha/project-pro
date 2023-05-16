@@ -20,8 +20,9 @@ namespace prog {
         return res;
     }
 
-    Color hex_to_color(std::string& str) {
-        Color res = (0, 0, 0);
+    Color hex_to_color(std::string str) {
+        Color res;
+        
 
         if (str[0] == '#')
             str = str.erase(0, 1);
@@ -29,9 +30,9 @@ namespace prog {
         std::string r = str.substr(0, 2);
         std::string b = str.substr(2, 2);
         std::string g = str.substr(4, 2);
-        res.red = hex_to_decimal(r);
-        res.blue = hex_to_decimal(b);
-        res.green = hex_to_decimal(g);
+        res.red() = hex_to_decimal(r);
+        res.blue() = hex_to_decimal(b);
+        res.green() = hex_to_decimal(g);
         return res;
     }
 
@@ -42,6 +43,9 @@ namespace prog {
     }
 
     void saveToXPM2(const std::string& file, const Image* image) {
-
+        int h = image->height(), w = image->width();
+        std::ofstream ofs (file);
+        ofs << "! XPM2";
+        
     }
 }
