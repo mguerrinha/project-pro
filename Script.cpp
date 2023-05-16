@@ -101,6 +101,10 @@ namespace prog {
                 saveToXPM2(file, image);
                 continue;
             }
+            if (command == "median_filter") {
+                median_filter();
+                continue;
+            }
 
         }
     }
@@ -212,7 +216,7 @@ namespace prog {
                 }
             }
         }
-        delete imagem;
+        clear_image_if_any();
     }
 
     void Script::crop() {
