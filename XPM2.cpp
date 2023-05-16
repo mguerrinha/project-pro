@@ -62,7 +62,6 @@ namespace prog {
                 image->at(col, row) = mapa[string({line.at(col)})];
             }
         }
-
         return image;
     }
 
@@ -85,19 +84,8 @@ namespace prog {
         return res;
     }
 
-    string color_to_hex(const Color& color) {
-        int r = color.red(), g = color.green(), b = color.blue();
-        std::string res;
-        res.append('#');
-        res.push_back(int_to_hex(r));
-        res.push_back(int_to_hex(g));
-        res.push_back(int_to_hex(b));
-        return res;
-    }
-
     void saveToXPM2(const std::string& file, const Image* image) {
 
-        for(int row = 0; row)
     }
 }
 

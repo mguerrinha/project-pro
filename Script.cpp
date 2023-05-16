@@ -89,6 +89,10 @@ namespace prog {
                 rotate_right();
                 continue;
             }
+            if (command == "median_filter") {
+                median_filter();
+                continue;
+            }
             if (command == "xpm2_open") {
                 std::string file;
                 input >> file;
@@ -229,8 +233,8 @@ namespace prog {
 
     void Script::rotate_left() {
         Image *rotate90 = new Image(image->height(), image->width());   // imagem onde vai ser guardado o resultado
-        for (int row = 0; row < (int)image->height(); row++) {
-            for (int col = 0; col < (int)image->width(); col++) {
+        for (int row = 0; row < image->height(); row++) {
+            for (int col = 0; col < image->width(); col++) {
                 rotate90->at(row, col) = image->at(image->width()-col-1, row);
             }
         }
@@ -240,12 +244,66 @@ namespace prog {
 
     void Script::rotate_right() {
         Image *rotate90 = new Image(image->height(), image->width());   // imagem onde vai ser guardado o resultado
-        for (int row = 0; row < (int)image->height(); row++) {
-            for (int col = 0; col < (int)image->width(); col++) {
+        for (int row = 0; row < image->height(); row++) {
+            for (int col = 0; col < image->width(); col++) {
                 rotate90->at(row, col) = image->at(col, image->height()-row-1);
             }
         }
         clear_image_if_any();
         image = rotate90;
+    }
+    
+    void find_neighbourhoud(const Image* image, int ws, int row, int col, std::vector<Color> &median) {
+        int aux = ws / 2;
+        int min_row = 0;
+        int min_col = 0;
+        int max_row = image->height() - 1;
+        int max_col = image->width() - 1;
+        if (row - aux >= 0)
+            min_row = row - aux;
+        if (col - aux >= 0)
+            min_col = col - aux;
+        if (row + aux <= max_row)
+            max_row = row + aux;
+        if (col + aux <= max_col)
+            max_col = col + aux;
+        
+        for (int r = min_row; r <= max_row; r++) {
+            for (int c = min_col; c <= max_col; c++) {
+                median.push_back(image->at(c, r));
+            }
+        }
+    }
+    
+    Color calculate_median(const std::vector<Color>& median) {
+        Color res;
+        std::vector<int> reds, greens, blues;
+        for (const Color& aux : median) {
+            reds.push_back(aux.red());
+            greens.push_back(aux.green());
+            blues.push_back(aux.blue());
+        }
+        std::sort(reds.begin(), reds.end());
+        std::sort(greens.begin(), greens.end());
+        std::sort(blues.begin(), blues.end());
+        
+        res.red() = reds[reds.size() / 2];
+        res.green() = greens[greens.size() / 2];
+        res.blue() = blues[blues.size() / 2];
+        return res;
+    }
+    void Script::median_filter() {
+        int ws;
+        input >> ws;
+        Image *modified = new Image(image->width(), image->height());
+        for (int row = 0; row < image->height(); row++) {
+            for (int col = 0; col < image->width(); col++) {
+                std::vector<Color> median;
+                find_neighbourhoud(image, ws, row, col, median);
+                modified->at(col, row) = calculate_median(median);
+            }
+        }
+        clear_image_if_any();
+        image = modified;
     }
 }
