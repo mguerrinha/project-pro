@@ -16,6 +16,9 @@ namespace prog {
         g_ = green;
         b_ = blue;
     }
+    bool Color::operator<(const Color& rgb) const{
+        return r_ < rgb.r_;
+    }
     rgb_value Color::red() const {
         return r_;
     }

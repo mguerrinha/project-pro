@@ -65,27 +65,62 @@ namespace prog {
         return image;
     }
 
-    string int_to_hex(int value) {
+    string int_to_hex(const int& value) {
         std::string res = "";
         char ch;
-        int aux;
+        int aux, value_ = value;
         for (int i = 0; i < 2; i++) {
-            aux = value % 16;
+            aux = value_ % 16;
             if (aux >= 0 && aux <= 9) {
                 ch = aux + '0';
             }
             else if (aux >= 10 && aux <= 15) {
+                aux -= 10;
                 ch = aux + 'a';
             }
             res.push_back(ch);
-            value /= 16;
+            value_ /= 16;
         }
         swap(res[1], res[0]);
         return res;
     }
 
-    void saveToXPM2(const std::string& file, const Image* image) {
+    string color_to_hex(const Color& color) {
+        int r = color.red(), g = color.green(), b = color.blue();
+        std::string res;
+        res.append("#");
+        res.append(int_to_hex(r));
+        res.append(int_to_hex(g));
+        res.append(int_to_hex(b));
+        return res;
+    }
 
+    void saveToXPM2(const std::string& file, const Image* image) {
+        ofstream out(file);
+        out << "! XPM2" << '\n';
+        int xpm2_height, xpm2_width, colors = 0;
+        xpm2_height = image->height();
+        xpm2_width = image->width();
+        map<Color, char> mapa;
+        for(int row = 0; row<xpm2_height; row++) {
+            for(int col = 0; col<xpm2_width; col++) {
+                if(mapa.count(image->at(col, row))==0) {
+                    mapa[image->at(col, row)] = 'a' + colors;
+                    colors++;
+                }
+            }
+        }
+        out << xpm2_width << " " << xpm2_height << " " << colors << " 1" << '\n'; 
+        for (const auto& pair : mapa) {
+            out << pair.second << " c " << color_to_hex(pair.first) << '\n';
+        }
+        for(int row = 0; row<xpm2_height; row++){
+            for(int col = 0; col<xpm2_width; col++){
+                out << mapa[image->at(col, row)];
+            }
+            out << '\n';
+        }
+        out.close();
     }
 }
 
