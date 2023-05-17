@@ -287,9 +287,16 @@ namespace prog {
         std::sort(greens.begin(), greens.end());
         std::sort(blues.begin(), blues.end());
         
-        res.red() = reds[reds.size() / 2];
-        res.green() = greens[greens.size() / 2];
-        res.blue() = blues[blues.size() / 2];
+        if (median.size() % 2 == 0) {
+            res.red() = ((reds[reds.size() / 2] + reds[(reds.size() / 2 - 1)]) / 2);
+            res.green() = ((greens[greens.size() / 2] + greens[(greens.size() / 2 - 1)]) / 2);
+            res.blue() = ((blues[blues.size() / 2] + blues[(blues.size() / 2 - 1)]) / 2);
+        }
+        else{
+            res.red() = reds[reds.size() / 2];
+            res.green() = greens[greens.size() / 2];
+            res.blue() = blues[blues.size() / 2];
+        }
         return res;
     }
     void Script::median_filter() {
