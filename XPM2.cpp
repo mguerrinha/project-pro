@@ -76,7 +76,9 @@ namespace prog {
                 ch = aux + '0';
             }
             else if (aux >= 10 && aux <= 15) {
+                aux-=10;
                 ch = aux + 'a';
+                
             }
             res.push_back(ch);
             value /= 16;
