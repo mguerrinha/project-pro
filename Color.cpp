@@ -21,7 +21,13 @@ namespace prog {
     }
     bool Color::operator<(const Color& rgb) const{
         // Constructor to use in any map with Color keys
-        return r_ < rgb.r_;
+        if (r_ < rgb.r_)
+            return true;
+        if (r_ == rgb.r_ && g_ < rgb.g_)
+            return true;
+        if (r_ == rgb.r_ && g_ == rgb.g_ && b_ < rgb.b_)
+            return true;
+        return false;
     }
 
     // Get values for individual RGB color channels

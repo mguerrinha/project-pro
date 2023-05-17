@@ -83,7 +83,7 @@ namespace prog {
             res.push_back(ch);
             value_ /= 16;
         }
-        swap(res[1], res[0]);
+        swap(res[0], res[1]);
         return res;
     }
 

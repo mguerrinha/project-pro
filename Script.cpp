@@ -219,7 +219,7 @@ namespace prog {
         Image* new_image = loadFromPNG(filename);   
         for (int col = 0; col < new_image->width(); col++){
             for (int row = 0; row < new_image->height(); row++){
-                if(new_image->at(col,row).red() != r || new_image->at(col,row).green() != g || imagem->at(col,row).blue() != b){
+                if(new_image->at(col,row).red() != r || new_image->at(col,row).green() != g || new_image->at(col,row).blue() != b){
                     // If new_image pixel color is different from (r, g, b) change image pixel
                     image->at(col+x,row+y).red() = new_image->at(col,row).red();
                     image->at(col+x,row+y).blue() = new_image->at(col,row).blue();
@@ -227,7 +227,7 @@ namespace prog {
                 }
             }
         }
-        delete imagem;
+        delete new_image;
     }
 
     void Script::crop() {
