@@ -326,57 +326,57 @@ Executing command 'xpm2_open' ...
 Executing command 'save' ...
 
 =================================================================
-==8805==ERROR: LeakSanitizer: detected memory leaks
+==10221==ERROR: LeakSanitizer: detected memory leaks
 
 Direct leak of 32 byte(s) in 1 object(s) allocated from:
-    #0 0x7faa012b61c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
-    #1 0x5643123133f1 in prog::Script::blank() /home/miguel/projetos_git/project-pro/Script.cpp:123
-    #2 0x564312311d3b in prog::Script::run() /home/miguel/projetos_git/project-pro/Script.cpp:44
-    #3 0x5643122fd49b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb249b)
-    #4 0x5643122fe29d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb329d)
-    #5 0x564312300113 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb5113)
-    #6 0x5643122fc560 in main /home/miguel/projetos_git/project-pro/test.cpp:186
-    #7 0x7faa00229d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #0 0x7f48d54b61c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x56514396b3b1 in prog::Script::blank() /home/miguel/projetos_git/project-pro/Script.cpp:123
+    #2 0x565143969cfb in prog::Script::run() /home/miguel/projetos_git/project-pro/Script.cpp:44
+    #3 0x56514395545b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xaf45b)
+    #4 0x56514395625d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb025d)
+    #5 0x5651439580d3 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb20d3)
+    #6 0x565143954520 in main /home/miguel/projetos_git/project-pro/test.cpp:186
+    #7 0x7f48d4429d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
 
 Indirect leak of 24 byte(s) in 1 object(s) allocated from:
-    #0 0x7faa012b61c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
-    #1 0x56431230fa57 in __gnu_cxx::new_allocator<std::vector<prog::Color, std::allocator<prog::Color> > >::allocate(unsigned long, void const*) (/home/miguel/projetos_git/project-pro/test+0xc4a57)
-    #2 0x56431230f731 in std::allocator_traits<std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::allocate(std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > >&, unsigned long) (/home/miguel/projetos_git/project-pro/test+0xc4731)
-    #3 0x56431230f095 in std::_Vector_base<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::_M_allocate(unsigned long) (/home/miguel/projetos_git/project-pro/test+0xc4095)
-    #4 0x56431230e6cf in std::_Vector_base<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::_M_create_storage(unsigned long) (/home/miguel/projetos_git/project-pro/test+0xc36cf)
-    #5 0x56431230d64a in std::_Vector_base<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::_Vector_base(unsigned long, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > const&) (/home/miguel/projetos_git/project-pro/test+0xc264a)
-    #6 0x56431230c50a in std::vector<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::vector(unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > const&) (/home/miguel/projetos_git/project-pro/test+0xc150a)
-    #7 0x56431230b392 in prog::Image::Image(int, int, prog::Color const&) /home/miguel/projetos_git/project-pro/Image.cpp:9
-    #8 0x56431231348e in prog::Script::blank() /home/miguel/projetos_git/project-pro/Script.cpp:123
-    #9 0x564312311d3b in prog::Script::run() /home/miguel/projetos_git/project-pro/Script.cpp:44
-    #10 0x5643122fd49b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb249b)
-    #11 0x5643122fe29d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb329d)
-    #12 0x564312300113 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb5113)
-    #13 0x5643122fc560 in main /home/miguel/projetos_git/project-pro/test.cpp:186
-    #14 0x7faa00229d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #0 0x7f48d54b61c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x565143967a17 in __gnu_cxx::new_allocator<std::vector<prog::Color, std::allocator<prog::Color> > >::allocate(unsigned long, void const*) (/home/miguel/projetos_git/project-pro/test+0xc1a17)
+    #2 0x5651439676f1 in std::allocator_traits<std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::allocate(std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > >&, unsigned long) (/home/miguel/projetos_git/project-pro/test+0xc16f1)
+    #3 0x565143967055 in std::_Vector_base<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::_M_allocate(unsigned long) (/home/miguel/projetos_git/project-pro/test+0xc1055)
+    #4 0x56514396668f in std::_Vector_base<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::_M_create_storage(unsigned long) (/home/miguel/projetos_git/project-pro/test+0xc068f)
+    #5 0x56514396560a in std::_Vector_base<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::_Vector_base(unsigned long, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > const&) (/home/miguel/projetos_git/project-pro/test+0xbf60a)
+    #6 0x5651439644ca in std::vector<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::vector(unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > const&) (/home/miguel/projetos_git/project-pro/test+0xbe4ca)
+    #7 0x565143963352 in prog::Image::Image(int, int, prog::Color const&) /home/miguel/projetos_git/project-pro/Image.cpp:9
+    #8 0x56514396b44e in prog::Script::blank() /home/miguel/projetos_git/project-pro/Script.cpp:123
+    #9 0x565143969cfb in prog::Script::run() /home/miguel/projetos_git/project-pro/Script.cpp:44
+    #10 0x56514395545b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xaf45b)
+    #11 0x56514395625d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb025d)
+    #12 0x5651439580d3 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb20d3)
+    #13 0x565143954520 in main /home/miguel/projetos_git/project-pro/test.cpp:186
+    #14 0x7f48d4429d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
 
 Indirect leak of 3 byte(s) in 1 object(s) allocated from:
-    #0 0x7faa012b61c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
-    #1 0x56431230f8f1 in __gnu_cxx::new_allocator<prog::Color>::allocate(unsigned long, void const*) /usr/include/c++/11/ext/new_allocator.h:127
-    #2 0x56431230f5ab in std::allocator_traits<std::allocator<prog::Color> >::allocate(std::allocator<prog::Color>&, unsigned long) /usr/include/c++/11/bits/alloc_traits.h:464
-    #3 0x56431230ef35 in std::_Vector_base<prog::Color, std::allocator<prog::Color> >::_M_allocate(unsigned long) /usr/include/c++/11/bits/stl_vector.h:346
-    #4 0x56431230e095 in std::_Vector_base<prog::Color, std::allocator<prog::Color> >::_M_create_storage(unsigned long) (/home/miguel/projetos_git/project-pro/test+0xc3095)
-    #5 0x56431230cf98 in std::_Vector_base<prog::Color, std::allocator<prog::Color> >::_Vector_base(unsigned long, std::allocator<prog::Color> const&) (/home/miguel/projetos_git/project-pro/test+0xc1f98)
-    #6 0x56431230fdca in std::vector<prog::Color, std::allocator<prog::Color> >::vector(std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc4dca)
-    #7 0x56431230faed in void std::_Construct<std::vector<prog::Color, std::allocator<prog::Color> >, std::vector<prog::Color, std::allocator<prog::Color> > const&>(std::vector<prog::Color, std::allocator<prog::Color> >*, std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc4aed)
-    #8 0x56431230f799 in std::vector<prog::Color, std::allocator<prog::Color> >* std::__uninitialized_fill_n<false>::__uninit_fill_n<std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > >(std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc4799)
-    #9 0x56431230f0d5 in std::vector<prog::Color, std::allocator<prog::Color> >* std::uninitialized_fill_n<std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > >(std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc40d5)
-    #10 0x56431230e8fc in std::vector<prog::Color, std::allocator<prog::Color> >* std::__uninitialized_fill_n_a<std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> >, std::vector<prog::Color, std::allocator<prog::Color> > >(std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > >&) (/home/miguel/projetos_git/project-pro/test+0xc38fc)
-    #11 0x56431230d7de in std::vector<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::_M_fill_initialize(unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc27de)
-    #12 0x56431230c549 in std::vector<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::vector(unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > const&) (/home/miguel/projetos_git/project-pro/test+0xc1549)
-    #13 0x56431230b392 in prog::Image::Image(int, int, prog::Color const&) /home/miguel/projetos_git/project-pro/Image.cpp:9
-    #14 0x56431231348e in prog::Script::blank() /home/miguel/projetos_git/project-pro/Script.cpp:123
-    #15 0x564312311d3b in prog::Script::run() /home/miguel/projetos_git/project-pro/Script.cpp:44
-    #16 0x5643122fd49b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb249b)
-    #17 0x5643122fe29d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb329d)
-    #18 0x564312300113 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb5113)
-    #19 0x5643122fc560 in main /home/miguel/projetos_git/project-pro/test.cpp:186
-    #20 0x7faa00229d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #0 0x7f48d54b61c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x5651439678b1 in __gnu_cxx::new_allocator<prog::Color>::allocate(unsigned long, void const*) /usr/include/c++/11/ext/new_allocator.h:127
+    #2 0x56514396756b in std::allocator_traits<std::allocator<prog::Color> >::allocate(std::allocator<prog::Color>&, unsigned long) /usr/include/c++/11/bits/alloc_traits.h:464
+    #3 0x565143966ef5 in std::_Vector_base<prog::Color, std::allocator<prog::Color> >::_M_allocate(unsigned long) /usr/include/c++/11/bits/stl_vector.h:346
+    #4 0x565143966055 in std::_Vector_base<prog::Color, std::allocator<prog::Color> >::_M_create_storage(unsigned long) (/home/miguel/projetos_git/project-pro/test+0xc0055)
+    #5 0x565143964f58 in std::_Vector_base<prog::Color, std::allocator<prog::Color> >::_Vector_base(unsigned long, std::allocator<prog::Color> const&) (/home/miguel/projetos_git/project-pro/test+0xbef58)
+    #6 0x565143967d8a in std::vector<prog::Color, std::allocator<prog::Color> >::vector(std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc1d8a)
+    #7 0x565143967aad in void std::_Construct<std::vector<prog::Color, std::allocator<prog::Color> >, std::vector<prog::Color, std::allocator<prog::Color> > const&>(std::vector<prog::Color, std::allocator<prog::Color> >*, std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc1aad)
+    #8 0x565143967759 in std::vector<prog::Color, std::allocator<prog::Color> >* std::__uninitialized_fill_n<false>::__uninit_fill_n<std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > >(std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc1759)
+    #9 0x565143967095 in std::vector<prog::Color, std::allocator<prog::Color> >* std::uninitialized_fill_n<std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > >(std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc1095)
+    #10 0x5651439668bc in std::vector<prog::Color, std::allocator<prog::Color> >* std::__uninitialized_fill_n_a<std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> >, std::vector<prog::Color, std::allocator<prog::Color> > >(std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > >&) (/home/miguel/projetos_git/project-pro/test+0xc08bc)
+    #11 0x56514396579e in std::vector<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::_M_fill_initialize(unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xbf79e)
+    #12 0x565143964509 in std::vector<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::vector(unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > const&) (/home/miguel/projetos_git/project-pro/test+0xbe509)
+    #13 0x565143963352 in prog::Image::Image(int, int, prog::Color const&) /home/miguel/projetos_git/project-pro/Image.cpp:9
+    #14 0x56514396b44e in prog::Script::blank() /home/miguel/projetos_git/project-pro/Script.cpp:123
+    #15 0x565143969cfb in prog::Script::run() /home/miguel/projetos_git/project-pro/Script.cpp:44
+    #16 0x56514395545b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xaf45b)
+    #17 0x56514395625d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb025d)
+    #18 0x5651439580d3 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb20d3)
+    #19 0x565143954520 in main /home/miguel/projetos_git/project-pro/test.cpp:186
+    #20 0x7f48d4429d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
 
 SUMMARY: AddressSanitizer: 59 byte(s) leaked in 3 allocation(s).
 >>>> [63] xpm2_save2 <<<<
@@ -389,57 +389,57 @@ Images differ at pixel (43, 43)
 0 255 0 vs 0 255 255
 
 =================================================================
-==8807==ERROR: LeakSanitizer: detected memory leaks
+==10223==ERROR: LeakSanitizer: detected memory leaks
 
 Direct leak of 32 byte(s) in 1 object(s) allocated from:
-    #0 0x7faa012b61c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
-    #1 0x5643123133f1 in prog::Script::blank() /home/miguel/projetos_git/project-pro/Script.cpp:123
-    #2 0x564312311d3b in prog::Script::run() /home/miguel/projetos_git/project-pro/Script.cpp:44
-    #3 0x5643122fd49b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb249b)
-    #4 0x5643122fe29d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb329d)
-    #5 0x564312300113 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb5113)
-    #6 0x5643122fc560 in main /home/miguel/projetos_git/project-pro/test.cpp:186
-    #7 0x7faa00229d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #0 0x7f48d54b61c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x56514396b3b1 in prog::Script::blank() /home/miguel/projetos_git/project-pro/Script.cpp:123
+    #2 0x565143969cfb in prog::Script::run() /home/miguel/projetos_git/project-pro/Script.cpp:44
+    #3 0x56514395545b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xaf45b)
+    #4 0x56514395625d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb025d)
+    #5 0x5651439580d3 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb20d3)
+    #6 0x565143954520 in main /home/miguel/projetos_git/project-pro/test.cpp:186
+    #7 0x7f48d4429d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
 
 Indirect leak of 24 byte(s) in 1 object(s) allocated from:
-    #0 0x7faa012b61c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
-    #1 0x56431230fa57 in __gnu_cxx::new_allocator<std::vector<prog::Color, std::allocator<prog::Color> > >::allocate(unsigned long, void const*) (/home/miguel/projetos_git/project-pro/test+0xc4a57)
-    #2 0x56431230f731 in std::allocator_traits<std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::allocate(std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > >&, unsigned long) (/home/miguel/projetos_git/project-pro/test+0xc4731)
-    #3 0x56431230f095 in std::_Vector_base<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::_M_allocate(unsigned long) (/home/miguel/projetos_git/project-pro/test+0xc4095)
-    #4 0x56431230e6cf in std::_Vector_base<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::_M_create_storage(unsigned long) (/home/miguel/projetos_git/project-pro/test+0xc36cf)
-    #5 0x56431230d64a in std::_Vector_base<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::_Vector_base(unsigned long, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > const&) (/home/miguel/projetos_git/project-pro/test+0xc264a)
-    #6 0x56431230c50a in std::vector<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::vector(unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > const&) (/home/miguel/projetos_git/project-pro/test+0xc150a)
-    #7 0x56431230b392 in prog::Image::Image(int, int, prog::Color const&) /home/miguel/projetos_git/project-pro/Image.cpp:9
-    #8 0x56431231348e in prog::Script::blank() /home/miguel/projetos_git/project-pro/Script.cpp:123
-    #9 0x564312311d3b in prog::Script::run() /home/miguel/projetos_git/project-pro/Script.cpp:44
-    #10 0x5643122fd49b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb249b)
-    #11 0x5643122fe29d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb329d)
-    #12 0x564312300113 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb5113)
-    #13 0x5643122fc560 in main /home/miguel/projetos_git/project-pro/test.cpp:186
-    #14 0x7faa00229d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #0 0x7f48d54b61c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x565143967a17 in __gnu_cxx::new_allocator<std::vector<prog::Color, std::allocator<prog::Color> > >::allocate(unsigned long, void const*) (/home/miguel/projetos_git/project-pro/test+0xc1a17)
+    #2 0x5651439676f1 in std::allocator_traits<std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::allocate(std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > >&, unsigned long) (/home/miguel/projetos_git/project-pro/test+0xc16f1)
+    #3 0x565143967055 in std::_Vector_base<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::_M_allocate(unsigned long) (/home/miguel/projetos_git/project-pro/test+0xc1055)
+    #4 0x56514396668f in std::_Vector_base<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::_M_create_storage(unsigned long) (/home/miguel/projetos_git/project-pro/test+0xc068f)
+    #5 0x56514396560a in std::_Vector_base<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::_Vector_base(unsigned long, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > const&) (/home/miguel/projetos_git/project-pro/test+0xbf60a)
+    #6 0x5651439644ca in std::vector<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::vector(unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > const&) (/home/miguel/projetos_git/project-pro/test+0xbe4ca)
+    #7 0x565143963352 in prog::Image::Image(int, int, prog::Color const&) /home/miguel/projetos_git/project-pro/Image.cpp:9
+    #8 0x56514396b44e in prog::Script::blank() /home/miguel/projetos_git/project-pro/Script.cpp:123
+    #9 0x565143969cfb in prog::Script::run() /home/miguel/projetos_git/project-pro/Script.cpp:44
+    #10 0x56514395545b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xaf45b)
+    #11 0x56514395625d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb025d)
+    #12 0x5651439580d3 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb20d3)
+    #13 0x565143954520 in main /home/miguel/projetos_git/project-pro/test.cpp:186
+    #14 0x7f48d4429d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
 
 Indirect leak of 3 byte(s) in 1 object(s) allocated from:
-    #0 0x7faa012b61c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
-    #1 0x56431230f8f1 in __gnu_cxx::new_allocator<prog::Color>::allocate(unsigned long, void const*) /usr/include/c++/11/ext/new_allocator.h:127
-    #2 0x56431230f5ab in std::allocator_traits<std::allocator<prog::Color> >::allocate(std::allocator<prog::Color>&, unsigned long) /usr/include/c++/11/bits/alloc_traits.h:464
-    #3 0x56431230ef35 in std::_Vector_base<prog::Color, std::allocator<prog::Color> >::_M_allocate(unsigned long) /usr/include/c++/11/bits/stl_vector.h:346
-    #4 0x56431230e095 in std::_Vector_base<prog::Color, std::allocator<prog::Color> >::_M_create_storage(unsigned long) (/home/miguel/projetos_git/project-pro/test+0xc3095)
-    #5 0x56431230cf98 in std::_Vector_base<prog::Color, std::allocator<prog::Color> >::_Vector_base(unsigned long, std::allocator<prog::Color> const&) (/home/miguel/projetos_git/project-pro/test+0xc1f98)
-    #6 0x56431230fdca in std::vector<prog::Color, std::allocator<prog::Color> >::vector(std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc4dca)
-    #7 0x56431230faed in void std::_Construct<std::vector<prog::Color, std::allocator<prog::Color> >, std::vector<prog::Color, std::allocator<prog::Color> > const&>(std::vector<prog::Color, std::allocator<prog::Color> >*, std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc4aed)
-    #8 0x56431230f799 in std::vector<prog::Color, std::allocator<prog::Color> >* std::__uninitialized_fill_n<false>::__uninit_fill_n<std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > >(std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc4799)
-    #9 0x56431230f0d5 in std::vector<prog::Color, std::allocator<prog::Color> >* std::uninitialized_fill_n<std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > >(std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc40d5)
-    #10 0x56431230e8fc in std::vector<prog::Color, std::allocator<prog::Color> >* std::__uninitialized_fill_n_a<std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> >, std::vector<prog::Color, std::allocator<prog::Color> > >(std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > >&) (/home/miguel/projetos_git/project-pro/test+0xc38fc)
-    #11 0x56431230d7de in std::vector<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::_M_fill_initialize(unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc27de)
-    #12 0x56431230c549 in std::vector<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::vector(unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > const&) (/home/miguel/projetos_git/project-pro/test+0xc1549)
-    #13 0x56431230b392 in prog::Image::Image(int, int, prog::Color const&) /home/miguel/projetos_git/project-pro/Image.cpp:9
-    #14 0x56431231348e in prog::Script::blank() /home/miguel/projetos_git/project-pro/Script.cpp:123
-    #15 0x564312311d3b in prog::Script::run() /home/miguel/projetos_git/project-pro/Script.cpp:44
-    #16 0x5643122fd49b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb249b)
-    #17 0x5643122fe29d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb329d)
-    #18 0x564312300113 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb5113)
-    #19 0x5643122fc560 in main /home/miguel/projetos_git/project-pro/test.cpp:186
-    #20 0x7faa00229d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #0 0x7f48d54b61c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x5651439678b1 in __gnu_cxx::new_allocator<prog::Color>::allocate(unsigned long, void const*) /usr/include/c++/11/ext/new_allocator.h:127
+    #2 0x56514396756b in std::allocator_traits<std::allocator<prog::Color> >::allocate(std::allocator<prog::Color>&, unsigned long) /usr/include/c++/11/bits/alloc_traits.h:464
+    #3 0x565143966ef5 in std::_Vector_base<prog::Color, std::allocator<prog::Color> >::_M_allocate(unsigned long) /usr/include/c++/11/bits/stl_vector.h:346
+    #4 0x565143966055 in std::_Vector_base<prog::Color, std::allocator<prog::Color> >::_M_create_storage(unsigned long) (/home/miguel/projetos_git/project-pro/test+0xc0055)
+    #5 0x565143964f58 in std::_Vector_base<prog::Color, std::allocator<prog::Color> >::_Vector_base(unsigned long, std::allocator<prog::Color> const&) (/home/miguel/projetos_git/project-pro/test+0xbef58)
+    #6 0x565143967d8a in std::vector<prog::Color, std::allocator<prog::Color> >::vector(std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc1d8a)
+    #7 0x565143967aad in void std::_Construct<std::vector<prog::Color, std::allocator<prog::Color> >, std::vector<prog::Color, std::allocator<prog::Color> > const&>(std::vector<prog::Color, std::allocator<prog::Color> >*, std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc1aad)
+    #8 0x565143967759 in std::vector<prog::Color, std::allocator<prog::Color> >* std::__uninitialized_fill_n<false>::__uninit_fill_n<std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > >(std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc1759)
+    #9 0x565143967095 in std::vector<prog::Color, std::allocator<prog::Color> >* std::uninitialized_fill_n<std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > >(std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc1095)
+    #10 0x5651439668bc in std::vector<prog::Color, std::allocator<prog::Color> >* std::__uninitialized_fill_n_a<std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> >, std::vector<prog::Color, std::allocator<prog::Color> > >(std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > >&) (/home/miguel/projetos_git/project-pro/test+0xc08bc)
+    #11 0x56514396579e in std::vector<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::_M_fill_initialize(unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xbf79e)
+    #12 0x565143964509 in std::vector<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::vector(unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > const&) (/home/miguel/projetos_git/project-pro/test+0xbe509)
+    #13 0x565143963352 in prog::Image::Image(int, int, prog::Color const&) /home/miguel/projetos_git/project-pro/Image.cpp:9
+    #14 0x56514396b44e in prog::Script::blank() /home/miguel/projetos_git/project-pro/Script.cpp:123
+    #15 0x565143969cfb in prog::Script::run() /home/miguel/projetos_git/project-pro/Script.cpp:44
+    #16 0x56514395545b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xaf45b)
+    #17 0x56514395625d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb025d)
+    #18 0x5651439580d3 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb20d3)
+    #19 0x565143954520 in main /home/miguel/projetos_git/project-pro/test.cpp:186
+    #20 0x7f48d4429d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
 
 SUMMARY: AddressSanitizer: 59 byte(s) leaked in 3 allocation(s).
 >>>> [64] xpm2_save3 <<<<
@@ -452,57 +452,57 @@ Images differ at pixel (158, 46)
 255 255 255 vs 255 255 0
 
 =================================================================
-==8809==ERROR: LeakSanitizer: detected memory leaks
+==10225==ERROR: LeakSanitizer: detected memory leaks
 
 Direct leak of 32 byte(s) in 1 object(s) allocated from:
-    #0 0x7faa012b61c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
-    #1 0x5643123133f1 in prog::Script::blank() /home/miguel/projetos_git/project-pro/Script.cpp:123
-    #2 0x564312311d3b in prog::Script::run() /home/miguel/projetos_git/project-pro/Script.cpp:44
-    #3 0x5643122fd49b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb249b)
-    #4 0x5643122fe29d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb329d)
-    #5 0x564312300113 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb5113)
-    #6 0x5643122fc560 in main /home/miguel/projetos_git/project-pro/test.cpp:186
-    #7 0x7faa00229d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #0 0x7f48d54b61c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x56514396b3b1 in prog::Script::blank() /home/miguel/projetos_git/project-pro/Script.cpp:123
+    #2 0x565143969cfb in prog::Script::run() /home/miguel/projetos_git/project-pro/Script.cpp:44
+    #3 0x56514395545b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xaf45b)
+    #4 0x56514395625d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb025d)
+    #5 0x5651439580d3 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb20d3)
+    #6 0x565143954520 in main /home/miguel/projetos_git/project-pro/test.cpp:186
+    #7 0x7f48d4429d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
 
 Indirect leak of 24 byte(s) in 1 object(s) allocated from:
-    #0 0x7faa012b61c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
-    #1 0x56431230fa57 in __gnu_cxx::new_allocator<std::vector<prog::Color, std::allocator<prog::Color> > >::allocate(unsigned long, void const*) (/home/miguel/projetos_git/project-pro/test+0xc4a57)
-    #2 0x56431230f731 in std::allocator_traits<std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::allocate(std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > >&, unsigned long) (/home/miguel/projetos_git/project-pro/test+0xc4731)
-    #3 0x56431230f095 in std::_Vector_base<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::_M_allocate(unsigned long) (/home/miguel/projetos_git/project-pro/test+0xc4095)
-    #4 0x56431230e6cf in std::_Vector_base<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::_M_create_storage(unsigned long) (/home/miguel/projetos_git/project-pro/test+0xc36cf)
-    #5 0x56431230d64a in std::_Vector_base<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::_Vector_base(unsigned long, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > const&) (/home/miguel/projetos_git/project-pro/test+0xc264a)
-    #6 0x56431230c50a in std::vector<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::vector(unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > const&) (/home/miguel/projetos_git/project-pro/test+0xc150a)
-    #7 0x56431230b392 in prog::Image::Image(int, int, prog::Color const&) /home/miguel/projetos_git/project-pro/Image.cpp:9
-    #8 0x56431231348e in prog::Script::blank() /home/miguel/projetos_git/project-pro/Script.cpp:123
-    #9 0x564312311d3b in prog::Script::run() /home/miguel/projetos_git/project-pro/Script.cpp:44
-    #10 0x5643122fd49b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb249b)
-    #11 0x5643122fe29d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb329d)
-    #12 0x564312300113 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb5113)
-    #13 0x5643122fc560 in main /home/miguel/projetos_git/project-pro/test.cpp:186
-    #14 0x7faa00229d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #0 0x7f48d54b61c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x565143967a17 in __gnu_cxx::new_allocator<std::vector<prog::Color, std::allocator<prog::Color> > >::allocate(unsigned long, void const*) (/home/miguel/projetos_git/project-pro/test+0xc1a17)
+    #2 0x5651439676f1 in std::allocator_traits<std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::allocate(std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > >&, unsigned long) (/home/miguel/projetos_git/project-pro/test+0xc16f1)
+    #3 0x565143967055 in std::_Vector_base<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::_M_allocate(unsigned long) (/home/miguel/projetos_git/project-pro/test+0xc1055)
+    #4 0x56514396668f in std::_Vector_base<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::_M_create_storage(unsigned long) (/home/miguel/projetos_git/project-pro/test+0xc068f)
+    #5 0x56514396560a in std::_Vector_base<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::_Vector_base(unsigned long, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > const&) (/home/miguel/projetos_git/project-pro/test+0xbf60a)
+    #6 0x5651439644ca in std::vector<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::vector(unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > const&) (/home/miguel/projetos_git/project-pro/test+0xbe4ca)
+    #7 0x565143963352 in prog::Image::Image(int, int, prog::Color const&) /home/miguel/projetos_git/project-pro/Image.cpp:9
+    #8 0x56514396b44e in prog::Script::blank() /home/miguel/projetos_git/project-pro/Script.cpp:123
+    #9 0x565143969cfb in prog::Script::run() /home/miguel/projetos_git/project-pro/Script.cpp:44
+    #10 0x56514395545b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xaf45b)
+    #11 0x56514395625d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb025d)
+    #12 0x5651439580d3 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb20d3)
+    #13 0x565143954520 in main /home/miguel/projetos_git/project-pro/test.cpp:186
+    #14 0x7f48d4429d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
 
 Indirect leak of 3 byte(s) in 1 object(s) allocated from:
-    #0 0x7faa012b61c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
-    #1 0x56431230f8f1 in __gnu_cxx::new_allocator<prog::Color>::allocate(unsigned long, void const*) /usr/include/c++/11/ext/new_allocator.h:127
-    #2 0x56431230f5ab in std::allocator_traits<std::allocator<prog::Color> >::allocate(std::allocator<prog::Color>&, unsigned long) /usr/include/c++/11/bits/alloc_traits.h:464
-    #3 0x56431230ef35 in std::_Vector_base<prog::Color, std::allocator<prog::Color> >::_M_allocate(unsigned long) /usr/include/c++/11/bits/stl_vector.h:346
-    #4 0x56431230e095 in std::_Vector_base<prog::Color, std::allocator<prog::Color> >::_M_create_storage(unsigned long) (/home/miguel/projetos_git/project-pro/test+0xc3095)
-    #5 0x56431230cf98 in std::_Vector_base<prog::Color, std::allocator<prog::Color> >::_Vector_base(unsigned long, std::allocator<prog::Color> const&) (/home/miguel/projetos_git/project-pro/test+0xc1f98)
-    #6 0x56431230fdca in std::vector<prog::Color, std::allocator<prog::Color> >::vector(std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc4dca)
-    #7 0x56431230faed in void std::_Construct<std::vector<prog::Color, std::allocator<prog::Color> >, std::vector<prog::Color, std::allocator<prog::Color> > const&>(std::vector<prog::Color, std::allocator<prog::Color> >*, std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc4aed)
-    #8 0x56431230f799 in std::vector<prog::Color, std::allocator<prog::Color> >* std::__uninitialized_fill_n<false>::__uninit_fill_n<std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > >(std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc4799)
-    #9 0x56431230f0d5 in std::vector<prog::Color, std::allocator<prog::Color> >* std::uninitialized_fill_n<std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > >(std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc40d5)
-    #10 0x56431230e8fc in std::vector<prog::Color, std::allocator<prog::Color> >* std::__uninitialized_fill_n_a<std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> >, std::vector<prog::Color, std::allocator<prog::Color> > >(std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > >&) (/home/miguel/projetos_git/project-pro/test+0xc38fc)
-    #11 0x56431230d7de in std::vector<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::_M_fill_initialize(unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc27de)
-    #12 0x56431230c549 in std::vector<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::vector(unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > const&) (/home/miguel/projetos_git/project-pro/test+0xc1549)
-    #13 0x56431230b392 in prog::Image::Image(int, int, prog::Color const&) /home/miguel/projetos_git/project-pro/Image.cpp:9
-    #14 0x56431231348e in prog::Script::blank() /home/miguel/projetos_git/project-pro/Script.cpp:123
-    #15 0x564312311d3b in prog::Script::run() /home/miguel/projetos_git/project-pro/Script.cpp:44
-    #16 0x5643122fd49b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb249b)
-    #17 0x5643122fe29d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb329d)
-    #18 0x564312300113 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb5113)
-    #19 0x5643122fc560 in main /home/miguel/projetos_git/project-pro/test.cpp:186
-    #20 0x7faa00229d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #0 0x7f48d54b61c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x5651439678b1 in __gnu_cxx::new_allocator<prog::Color>::allocate(unsigned long, void const*) /usr/include/c++/11/ext/new_allocator.h:127
+    #2 0x56514396756b in std::allocator_traits<std::allocator<prog::Color> >::allocate(std::allocator<prog::Color>&, unsigned long) /usr/include/c++/11/bits/alloc_traits.h:464
+    #3 0x565143966ef5 in std::_Vector_base<prog::Color, std::allocator<prog::Color> >::_M_allocate(unsigned long) /usr/include/c++/11/bits/stl_vector.h:346
+    #4 0x565143966055 in std::_Vector_base<prog::Color, std::allocator<prog::Color> >::_M_create_storage(unsigned long) (/home/miguel/projetos_git/project-pro/test+0xc0055)
+    #5 0x565143964f58 in std::_Vector_base<prog::Color, std::allocator<prog::Color> >::_Vector_base(unsigned long, std::allocator<prog::Color> const&) (/home/miguel/projetos_git/project-pro/test+0xbef58)
+    #6 0x565143967d8a in std::vector<prog::Color, std::allocator<prog::Color> >::vector(std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc1d8a)
+    #7 0x565143967aad in void std::_Construct<std::vector<prog::Color, std::allocator<prog::Color> >, std::vector<prog::Color, std::allocator<prog::Color> > const&>(std::vector<prog::Color, std::allocator<prog::Color> >*, std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc1aad)
+    #8 0x565143967759 in std::vector<prog::Color, std::allocator<prog::Color> >* std::__uninitialized_fill_n<false>::__uninit_fill_n<std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > >(std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc1759)
+    #9 0x565143967095 in std::vector<prog::Color, std::allocator<prog::Color> >* std::uninitialized_fill_n<std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > >(std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc1095)
+    #10 0x5651439668bc in std::vector<prog::Color, std::allocator<prog::Color> >* std::__uninitialized_fill_n_a<std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> >, std::vector<prog::Color, std::allocator<prog::Color> > >(std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > >&) (/home/miguel/projetos_git/project-pro/test+0xc08bc)
+    #11 0x56514396579e in std::vector<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::_M_fill_initialize(unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xbf79e)
+    #12 0x565143964509 in std::vector<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::vector(unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > const&) (/home/miguel/projetos_git/project-pro/test+0xbe509)
+    #13 0x565143963352 in prog::Image::Image(int, int, prog::Color const&) /home/miguel/projetos_git/project-pro/Image.cpp:9
+    #14 0x56514396b44e in prog::Script::blank() /home/miguel/projetos_git/project-pro/Script.cpp:123
+    #15 0x565143969cfb in prog::Script::run() /home/miguel/projetos_git/project-pro/Script.cpp:44
+    #16 0x56514395545b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xaf45b)
+    #17 0x56514395625d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb025d)
+    #18 0x5651439580d3 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb20d3)
+    #19 0x565143954520 in main /home/miguel/projetos_git/project-pro/test.cpp:186
+    #20 0x7f48d4429d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
 
 SUMMARY: AddressSanitizer: 59 byte(s) leaked in 3 allocation(s).
 >>>> [65] xpm2_save4 <<<<
@@ -515,57 +515,57 @@ Images differ at pixel (135, 60)
 255 175 175 vs 255 255 255
 
 =================================================================
-==8811==ERROR: LeakSanitizer: detected memory leaks
+==10227==ERROR: LeakSanitizer: detected memory leaks
 
 Direct leak of 32 byte(s) in 1 object(s) allocated from:
-    #0 0x7faa012b61c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
-    #1 0x5643123133f1 in prog::Script::blank() /home/miguel/projetos_git/project-pro/Script.cpp:123
-    #2 0x564312311d3b in prog::Script::run() /home/miguel/projetos_git/project-pro/Script.cpp:44
-    #3 0x5643122fd49b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb249b)
-    #4 0x5643122fe29d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb329d)
-    #5 0x564312300113 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb5113)
-    #6 0x5643122fc560 in main /home/miguel/projetos_git/project-pro/test.cpp:186
-    #7 0x7faa00229d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #0 0x7f48d54b61c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x56514396b3b1 in prog::Script::blank() /home/miguel/projetos_git/project-pro/Script.cpp:123
+    #2 0x565143969cfb in prog::Script::run() /home/miguel/projetos_git/project-pro/Script.cpp:44
+    #3 0x56514395545b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xaf45b)
+    #4 0x56514395625d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb025d)
+    #5 0x5651439580d3 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb20d3)
+    #6 0x565143954520 in main /home/miguel/projetos_git/project-pro/test.cpp:186
+    #7 0x7f48d4429d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
 
 Indirect leak of 24 byte(s) in 1 object(s) allocated from:
-    #0 0x7faa012b61c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
-    #1 0x56431230fa57 in __gnu_cxx::new_allocator<std::vector<prog::Color, std::allocator<prog::Color> > >::allocate(unsigned long, void const*) (/home/miguel/projetos_git/project-pro/test+0xc4a57)
-    #2 0x56431230f731 in std::allocator_traits<std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::allocate(std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > >&, unsigned long) (/home/miguel/projetos_git/project-pro/test+0xc4731)
-    #3 0x56431230f095 in std::_Vector_base<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::_M_allocate(unsigned long) (/home/miguel/projetos_git/project-pro/test+0xc4095)
-    #4 0x56431230e6cf in std::_Vector_base<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::_M_create_storage(unsigned long) (/home/miguel/projetos_git/project-pro/test+0xc36cf)
-    #5 0x56431230d64a in std::_Vector_base<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::_Vector_base(unsigned long, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > const&) (/home/miguel/projetos_git/project-pro/test+0xc264a)
-    #6 0x56431230c50a in std::vector<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::vector(unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > const&) (/home/miguel/projetos_git/project-pro/test+0xc150a)
-    #7 0x56431230b392 in prog::Image::Image(int, int, prog::Color const&) /home/miguel/projetos_git/project-pro/Image.cpp:9
-    #8 0x56431231348e in prog::Script::blank() /home/miguel/projetos_git/project-pro/Script.cpp:123
-    #9 0x564312311d3b in prog::Script::run() /home/miguel/projetos_git/project-pro/Script.cpp:44
-    #10 0x5643122fd49b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb249b)
-    #11 0x5643122fe29d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb329d)
-    #12 0x564312300113 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb5113)
-    #13 0x5643122fc560 in main /home/miguel/projetos_git/project-pro/test.cpp:186
-    #14 0x7faa00229d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #0 0x7f48d54b61c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x565143967a17 in __gnu_cxx::new_allocator<std::vector<prog::Color, std::allocator<prog::Color> > >::allocate(unsigned long, void const*) (/home/miguel/projetos_git/project-pro/test+0xc1a17)
+    #2 0x5651439676f1 in std::allocator_traits<std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::allocate(std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > >&, unsigned long) (/home/miguel/projetos_git/project-pro/test+0xc16f1)
+    #3 0x565143967055 in std::_Vector_base<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::_M_allocate(unsigned long) (/home/miguel/projetos_git/project-pro/test+0xc1055)
+    #4 0x56514396668f in std::_Vector_base<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::_M_create_storage(unsigned long) (/home/miguel/projetos_git/project-pro/test+0xc068f)
+    #5 0x56514396560a in std::_Vector_base<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::_Vector_base(unsigned long, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > const&) (/home/miguel/projetos_git/project-pro/test+0xbf60a)
+    #6 0x5651439644ca in std::vector<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::vector(unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > const&) (/home/miguel/projetos_git/project-pro/test+0xbe4ca)
+    #7 0x565143963352 in prog::Image::Image(int, int, prog::Color const&) /home/miguel/projetos_git/project-pro/Image.cpp:9
+    #8 0x56514396b44e in prog::Script::blank() /home/miguel/projetos_git/project-pro/Script.cpp:123
+    #9 0x565143969cfb in prog::Script::run() /home/miguel/projetos_git/project-pro/Script.cpp:44
+    #10 0x56514395545b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xaf45b)
+    #11 0x56514395625d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb025d)
+    #12 0x5651439580d3 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb20d3)
+    #13 0x565143954520 in main /home/miguel/projetos_git/project-pro/test.cpp:186
+    #14 0x7f48d4429d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
 
 Indirect leak of 3 byte(s) in 1 object(s) allocated from:
-    #0 0x7faa012b61c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
-    #1 0x56431230f8f1 in __gnu_cxx::new_allocator<prog::Color>::allocate(unsigned long, void const*) /usr/include/c++/11/ext/new_allocator.h:127
-    #2 0x56431230f5ab in std::allocator_traits<std::allocator<prog::Color> >::allocate(std::allocator<prog::Color>&, unsigned long) /usr/include/c++/11/bits/alloc_traits.h:464
-    #3 0x56431230ef35 in std::_Vector_base<prog::Color, std::allocator<prog::Color> >::_M_allocate(unsigned long) /usr/include/c++/11/bits/stl_vector.h:346
-    #4 0x56431230e095 in std::_Vector_base<prog::Color, std::allocator<prog::Color> >::_M_create_storage(unsigned long) (/home/miguel/projetos_git/project-pro/test+0xc3095)
-    #5 0x56431230cf98 in std::_Vector_base<prog::Color, std::allocator<prog::Color> >::_Vector_base(unsigned long, std::allocator<prog::Color> const&) (/home/miguel/projetos_git/project-pro/test+0xc1f98)
-    #6 0x56431230fdca in std::vector<prog::Color, std::allocator<prog::Color> >::vector(std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc4dca)
-    #7 0x56431230faed in void std::_Construct<std::vector<prog::Color, std::allocator<prog::Color> >, std::vector<prog::Color, std::allocator<prog::Color> > const&>(std::vector<prog::Color, std::allocator<prog::Color> >*, std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc4aed)
-    #8 0x56431230f799 in std::vector<prog::Color, std::allocator<prog::Color> >* std::__uninitialized_fill_n<false>::__uninit_fill_n<std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > >(std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc4799)
-    #9 0x56431230f0d5 in std::vector<prog::Color, std::allocator<prog::Color> >* std::uninitialized_fill_n<std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > >(std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc40d5)
-    #10 0x56431230e8fc in std::vector<prog::Color, std::allocator<prog::Color> >* std::__uninitialized_fill_n_a<std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> >, std::vector<prog::Color, std::allocator<prog::Color> > >(std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > >&) (/home/miguel/projetos_git/project-pro/test+0xc38fc)
-    #11 0x56431230d7de in std::vector<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::_M_fill_initialize(unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc27de)
-    #12 0x56431230c549 in std::vector<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::vector(unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > const&) (/home/miguel/projetos_git/project-pro/test+0xc1549)
-    #13 0x56431230b392 in prog::Image::Image(int, int, prog::Color const&) /home/miguel/projetos_git/project-pro/Image.cpp:9
-    #14 0x56431231348e in prog::Script::blank() /home/miguel/projetos_git/project-pro/Script.cpp:123
-    #15 0x564312311d3b in prog::Script::run() /home/miguel/projetos_git/project-pro/Script.cpp:44
-    #16 0x5643122fd49b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb249b)
-    #17 0x5643122fe29d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb329d)
-    #18 0x564312300113 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb5113)
-    #19 0x5643122fc560 in main /home/miguel/projetos_git/project-pro/test.cpp:186
-    #20 0x7faa00229d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #0 0x7f48d54b61c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x5651439678b1 in __gnu_cxx::new_allocator<prog::Color>::allocate(unsigned long, void const*) /usr/include/c++/11/ext/new_allocator.h:127
+    #2 0x56514396756b in std::allocator_traits<std::allocator<prog::Color> >::allocate(std::allocator<prog::Color>&, unsigned long) /usr/include/c++/11/bits/alloc_traits.h:464
+    #3 0x565143966ef5 in std::_Vector_base<prog::Color, std::allocator<prog::Color> >::_M_allocate(unsigned long) /usr/include/c++/11/bits/stl_vector.h:346
+    #4 0x565143966055 in std::_Vector_base<prog::Color, std::allocator<prog::Color> >::_M_create_storage(unsigned long) (/home/miguel/projetos_git/project-pro/test+0xc0055)
+    #5 0x565143964f58 in std::_Vector_base<prog::Color, std::allocator<prog::Color> >::_Vector_base(unsigned long, std::allocator<prog::Color> const&) (/home/miguel/projetos_git/project-pro/test+0xbef58)
+    #6 0x565143967d8a in std::vector<prog::Color, std::allocator<prog::Color> >::vector(std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc1d8a)
+    #7 0x565143967aad in void std::_Construct<std::vector<prog::Color, std::allocator<prog::Color> >, std::vector<prog::Color, std::allocator<prog::Color> > const&>(std::vector<prog::Color, std::allocator<prog::Color> >*, std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc1aad)
+    #8 0x565143967759 in std::vector<prog::Color, std::allocator<prog::Color> >* std::__uninitialized_fill_n<false>::__uninit_fill_n<std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > >(std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc1759)
+    #9 0x565143967095 in std::vector<prog::Color, std::allocator<prog::Color> >* std::uninitialized_fill_n<std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > >(std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc1095)
+    #10 0x5651439668bc in std::vector<prog::Color, std::allocator<prog::Color> >* std::__uninitialized_fill_n_a<std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> >, std::vector<prog::Color, std::allocator<prog::Color> > >(std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > >&) (/home/miguel/projetos_git/project-pro/test+0xc08bc)
+    #11 0x56514396579e in std::vector<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::_M_fill_initialize(unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xbf79e)
+    #12 0x565143964509 in std::vector<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::vector(unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > const&) (/home/miguel/projetos_git/project-pro/test+0xbe509)
+    #13 0x565143963352 in prog::Image::Image(int, int, prog::Color const&) /home/miguel/projetos_git/project-pro/Image.cpp:9
+    #14 0x56514396b44e in prog::Script::blank() /home/miguel/projetos_git/project-pro/Script.cpp:123
+    #15 0x565143969cfb in prog::Script::run() /home/miguel/projetos_git/project-pro/Script.cpp:44
+    #16 0x56514395545b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xaf45b)
+    #17 0x56514395625d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb025d)
+    #18 0x5651439580d3 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb20d3)
+    #19 0x565143954520 in main /home/miguel/projetos_git/project-pro/test.cpp:186
+    #20 0x7f48d4429d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
 
 SUMMARY: AddressSanitizer: 59 byte(s) leaked in 3 allocation(s).
 >>>> [66] xpm2_save5 <<<<
@@ -578,56 +578,56 @@ Images differ at pixel (43, 10)
 255 229 178 vs 255 255 255
 
 =================================================================
-==8813==ERROR: LeakSanitizer: detected memory leaks
+==10229==ERROR: LeakSanitizer: detected memory leaks
 
 Direct leak of 32 byte(s) in 1 object(s) allocated from:
-    #0 0x7faa012b61c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
-    #1 0x5643123133f1 in prog::Script::blank() /home/miguel/projetos_git/project-pro/Script.cpp:123
-    #2 0x564312311d3b in prog::Script::run() /home/miguel/projetos_git/project-pro/Script.cpp:44
-    #3 0x5643122fd49b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb249b)
-    #4 0x5643122fe29d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb329d)
-    #5 0x564312300113 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb5113)
-    #6 0x5643122fc560 in main /home/miguel/projetos_git/project-pro/test.cpp:186
-    #7 0x7faa00229d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #0 0x7f48d54b61c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x56514396b3b1 in prog::Script::blank() /home/miguel/projetos_git/project-pro/Script.cpp:123
+    #2 0x565143969cfb in prog::Script::run() /home/miguel/projetos_git/project-pro/Script.cpp:44
+    #3 0x56514395545b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xaf45b)
+    #4 0x56514395625d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb025d)
+    #5 0x5651439580d3 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb20d3)
+    #6 0x565143954520 in main /home/miguel/projetos_git/project-pro/test.cpp:186
+    #7 0x7f48d4429d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
 
 Indirect leak of 24 byte(s) in 1 object(s) allocated from:
-    #0 0x7faa012b61c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
-    #1 0x56431230fa57 in __gnu_cxx::new_allocator<std::vector<prog::Color, std::allocator<prog::Color> > >::allocate(unsigned long, void const*) (/home/miguel/projetos_git/project-pro/test+0xc4a57)
-    #2 0x56431230f731 in std::allocator_traits<std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::allocate(std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > >&, unsigned long) (/home/miguel/projetos_git/project-pro/test+0xc4731)
-    #3 0x56431230f095 in std::_Vector_base<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::_M_allocate(unsigned long) (/home/miguel/projetos_git/project-pro/test+0xc4095)
-    #4 0x56431230e6cf in std::_Vector_base<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::_M_create_storage(unsigned long) (/home/miguel/projetos_git/project-pro/test+0xc36cf)
-    #5 0x56431230d64a in std::_Vector_base<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::_Vector_base(unsigned long, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > const&) (/home/miguel/projetos_git/project-pro/test+0xc264a)
-    #6 0x56431230c50a in std::vector<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::vector(unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > const&) (/home/miguel/projetos_git/project-pro/test+0xc150a)
-    #7 0x56431230b392 in prog::Image::Image(int, int, prog::Color const&) /home/miguel/projetos_git/project-pro/Image.cpp:9
-    #8 0x56431231348e in prog::Script::blank() /home/miguel/projetos_git/project-pro/Script.cpp:123
-    #9 0x564312311d3b in prog::Script::run() /home/miguel/projetos_git/project-pro/Script.cpp:44
-    #10 0x5643122fd49b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb249b)
-    #11 0x5643122fe29d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb329d)
-    #12 0x564312300113 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb5113)
-    #13 0x5643122fc560 in main /home/miguel/projetos_git/project-pro/test.cpp:186
-    #14 0x7faa00229d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #0 0x7f48d54b61c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x565143967a17 in __gnu_cxx::new_allocator<std::vector<prog::Color, std::allocator<prog::Color> > >::allocate(unsigned long, void const*) (/home/miguel/projetos_git/project-pro/test+0xc1a17)
+    #2 0x5651439676f1 in std::allocator_traits<std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::allocate(std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > >&, unsigned long) (/home/miguel/projetos_git/project-pro/test+0xc16f1)
+    #3 0x565143967055 in std::_Vector_base<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::_M_allocate(unsigned long) (/home/miguel/projetos_git/project-pro/test+0xc1055)
+    #4 0x56514396668f in std::_Vector_base<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::_M_create_storage(unsigned long) (/home/miguel/projetos_git/project-pro/test+0xc068f)
+    #5 0x56514396560a in std::_Vector_base<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::_Vector_base(unsigned long, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > const&) (/home/miguel/projetos_git/project-pro/test+0xbf60a)
+    #6 0x5651439644ca in std::vector<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::vector(unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > const&) (/home/miguel/projetos_git/project-pro/test+0xbe4ca)
+    #7 0x565143963352 in prog::Image::Image(int, int, prog::Color const&) /home/miguel/projetos_git/project-pro/Image.cpp:9
+    #8 0x56514396b44e in prog::Script::blank() /home/miguel/projetos_git/project-pro/Script.cpp:123
+    #9 0x565143969cfb in prog::Script::run() /home/miguel/projetos_git/project-pro/Script.cpp:44
+    #10 0x56514395545b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xaf45b)
+    #11 0x56514395625d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb025d)
+    #12 0x5651439580d3 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb20d3)
+    #13 0x565143954520 in main /home/miguel/projetos_git/project-pro/test.cpp:186
+    #14 0x7f48d4429d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
 
 Indirect leak of 3 byte(s) in 1 object(s) allocated from:
-    #0 0x7faa012b61c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
-    #1 0x56431230f8f1 in __gnu_cxx::new_allocator<prog::Color>::allocate(unsigned long, void const*) /usr/include/c++/11/ext/new_allocator.h:127
-    #2 0x56431230f5ab in std::allocator_traits<std::allocator<prog::Color> >::allocate(std::allocator<prog::Color>&, unsigned long) /usr/include/c++/11/bits/alloc_traits.h:464
-    #3 0x56431230ef35 in std::_Vector_base<prog::Color, std::allocator<prog::Color> >::_M_allocate(unsigned long) /usr/include/c++/11/bits/stl_vector.h:346
-    #4 0x56431230e095 in std::_Vector_base<prog::Color, std::allocator<prog::Color> >::_M_create_storage(unsigned long) (/home/miguel/projetos_git/project-pro/test+0xc3095)
-    #5 0x56431230cf98 in std::_Vector_base<prog::Color, std::allocator<prog::Color> >::_Vector_base(unsigned long, std::allocator<prog::Color> const&) (/home/miguel/projetos_git/project-pro/test+0xc1f98)
-    #6 0x56431230fdca in std::vector<prog::Color, std::allocator<prog::Color> >::vector(std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc4dca)
-    #7 0x56431230faed in void std::_Construct<std::vector<prog::Color, std::allocator<prog::Color> >, std::vector<prog::Color, std::allocator<prog::Color> > const&>(std::vector<prog::Color, std::allocator<prog::Color> >*, std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc4aed)
-    #8 0x56431230f799 in std::vector<prog::Color, std::allocator<prog::Color> >* std::__uninitialized_fill_n<false>::__uninit_fill_n<std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > >(std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc4799)
-    #9 0x56431230f0d5 in std::vector<prog::Color, std::allocator<prog::Color> >* std::uninitialized_fill_n<std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > >(std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc40d5)
-    #10 0x56431230e8fc in std::vector<prog::Color, std::allocator<prog::Color> >* std::__uninitialized_fill_n_a<std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> >, std::vector<prog::Color, std::allocator<prog::Color> > >(std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > >&) (/home/miguel/projetos_git/project-pro/test+0xc38fc)
-    #11 0x56431230d7de in std::vector<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::_M_fill_initialize(unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc27de)
-    #12 0x56431230c549 in std::vector<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::vector(unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > const&) (/home/miguel/projetos_git/project-pro/test+0xc1549)
-    #13 0x56431230b392 in prog::Image::Image(int, int, prog::Color const&) /home/miguel/projetos_git/project-pro/Image.cpp:9
-    #14 0x56431231348e in prog::Script::blank() /home/miguel/projetos_git/project-pro/Script.cpp:123
-    #15 0x564312311d3b in prog::Script::run() /home/miguel/projetos_git/project-pro/Script.cpp:44
-    #16 0x5643122fd49b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb249b)
-    #17 0x5643122fe29d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb329d)
-    #18 0x564312300113 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb5113)
-    #19 0x5643122fc560 in main /home/miguel/projetos_git/project-pro/test.cpp:186
-    #20 0x7faa00229d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #0 0x7f48d54b61c7 in operator new(unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:99
+    #1 0x5651439678b1 in __gnu_cxx::new_allocator<prog::Color>::allocate(unsigned long, void const*) /usr/include/c++/11/ext/new_allocator.h:127
+    #2 0x56514396756b in std::allocator_traits<std::allocator<prog::Color> >::allocate(std::allocator<prog::Color>&, unsigned long) /usr/include/c++/11/bits/alloc_traits.h:464
+    #3 0x565143966ef5 in std::_Vector_base<prog::Color, std::allocator<prog::Color> >::_M_allocate(unsigned long) /usr/include/c++/11/bits/stl_vector.h:346
+    #4 0x565143966055 in std::_Vector_base<prog::Color, std::allocator<prog::Color> >::_M_create_storage(unsigned long) (/home/miguel/projetos_git/project-pro/test+0xc0055)
+    #5 0x565143964f58 in std::_Vector_base<prog::Color, std::allocator<prog::Color> >::_Vector_base(unsigned long, std::allocator<prog::Color> const&) (/home/miguel/projetos_git/project-pro/test+0xbef58)
+    #6 0x565143967d8a in std::vector<prog::Color, std::allocator<prog::Color> >::vector(std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc1d8a)
+    #7 0x565143967aad in void std::_Construct<std::vector<prog::Color, std::allocator<prog::Color> >, std::vector<prog::Color, std::allocator<prog::Color> > const&>(std::vector<prog::Color, std::allocator<prog::Color> >*, std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc1aad)
+    #8 0x565143967759 in std::vector<prog::Color, std::allocator<prog::Color> >* std::__uninitialized_fill_n<false>::__uninit_fill_n<std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > >(std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc1759)
+    #9 0x565143967095 in std::vector<prog::Color, std::allocator<prog::Color> >* std::uninitialized_fill_n<std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > >(std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xc1095)
+    #10 0x5651439668bc in std::vector<prog::Color, std::allocator<prog::Color> >* std::__uninitialized_fill_n_a<std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> >, std::vector<prog::Color, std::allocator<prog::Color> > >(std::vector<prog::Color, std::allocator<prog::Color> >*, unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > >&) (/home/miguel/projetos_git/project-pro/test+0xc08bc)
+    #11 0x56514396579e in std::vector<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::_M_fill_initialize(unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&) (/home/miguel/projetos_git/project-pro/test+0xbf79e)
+    #12 0x565143964509 in std::vector<std::vector<prog::Color, std::allocator<prog::Color> >, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > >::vector(unsigned long, std::vector<prog::Color, std::allocator<prog::Color> > const&, std::allocator<std::vector<prog::Color, std::allocator<prog::Color> > > const&) (/home/miguel/projetos_git/project-pro/test+0xbe509)
+    #13 0x565143963352 in prog::Image::Image(int, int, prog::Color const&) /home/miguel/projetos_git/project-pro/Image.cpp:9
+    #14 0x56514396b44e in prog::Script::blank() /home/miguel/projetos_git/project-pro/Script.cpp:123
+    #15 0x565143969cfb in prog::Script::run() /home/miguel/projetos_git/project-pro/Script.cpp:44
+    #16 0x56514395545b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xaf45b)
+    #17 0x56514395625d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb025d)
+    #18 0x5651439580d3 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (/home/miguel/projetos_git/project-pro/test+0xb20d3)
+    #19 0x565143954520 in main /home/miguel/projetos_git/project-pro/test.cpp:186
+    #20 0x7f48d4429d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
 
 SUMMARY: AddressSanitizer: 59 byte(s) leaked in 3 allocation(s).

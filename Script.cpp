@@ -130,6 +130,7 @@ namespace prog {
     }
 
     void Script::invert() {
+        // Transforms each individual pixel (red, green, blue) to (255-red, 255-green, 255-blue)
         for(int row = 0; row < image->height(); row++){
             for(int col = 0; col < image->width(); col++){
                 image->at(col, row).red() = 255-image->at(col,row).red();
@@ -140,6 +141,7 @@ namespace prog {
     }
 
     void Script::to_gray_scale() {
+        // Transforms each individual pixel (red, green, blue) to (v, v, v) where v = (red + green + blue)/3
         for(int row = 0; row < image->height(); row++){
             for(int col = 0; col < image->width(); col++){
                 unsigned int r=image->at(col,row).red();
@@ -153,6 +155,7 @@ namespace prog {
     }
 
     void Script::replace() {
+        // Replaces all (r1, g1, b1) pixels by (r2, g2, b2)
         unsigned int r1, g1, b1, r2, g2, b2, r, g, b;
         input >> r1 >> g1 >> b1 >> r2 >> g2 >> b2;
         for(int row = 0; row < image->height(); row++){
@@ -169,7 +172,8 @@ namespace prog {
         }
     }   
 
-    void Script::fill()  {
+    void Script::fill() {
+        // Assign (r, g, b) to all pixels contained in rectangle defined by top-left corner (x, y) width w and height h
         int x, y, w, h;
         unsigned int r, g, b;
         input >> x >> y >> w >> h >> r >> g >> b;
@@ -183,35 +187,43 @@ namespace prog {
     }
 
     void Script::h_mirror() {
+        // Mirror image horizontally
         for (int row = 0; row < image->height(); row++) {
-            int middle_col = image->width() / 2;    // index da coluna do meio
-            for (int col = 0; col < middle_col; col++) {   // itera até à coluna do meio
-                std::swap(image->at(col, row), image->at(image->width() - 1 - col, row));   
+            int middle_col = image->width() / 2;    // Index of the middle column
+            for (int col = 0; col < middle_col; col++) {   // Iterate until middle column
+                std::swap(image->at(col, row), image->at(image->width() - 1 - col, row));   // swap the first pixel with the last pixel of the same line until reach the middle column 
             }
         }
     }
 
     void Script::v_mirror() {
+        // Mirror image vertically
         for (int col = 0; col < image->width(); col++) {
-            int middle_row = image->height() / 2;   // index da linha do meio
-            for (int row = 0; row < middle_row; row++) {    // itera até à linha do meio
-                std::swap(image->at(col, row), image->at(col, image->height() - 1 - row));
+            int middle_row = image->height() / 2;   // Index of the middle row
+            for (int row = 0; row < middle_row; row++) {    // Iterate until middle row
+                std::swap(image->at(col, row), image->at(col, image->height() - 1 - row));  // swap the first pixel with the last pixel of the same column until reach the middle row
             }
         }
     }
 
-    void Script::add() {
+    void Script::add() {    
+        /* 
+        Copy all pixels from images stored in PNG file except pixels in that 
+        image with "neutral" color (r, g, b), to the rectangle of the current 
+        image with top-left corner (x, y) of the current image  
+        */
         string filename;
         unsigned int r, g, b;
         int x, y;
         input >> filename >> r >> g >> b >> x >> y;
-        Image* imagem = loadFromPNG(filename);   
-        for (int col = 0; col < imagem->width(); col++){
-            for (int row = 0; row < imagem->height(); row++){
-                if(imagem->at(col,row).red() != r || imagem->at(col,row).green() != g || imagem->at(col,row).blue() != b){
-                    image->at(col+x,row+y).red() = imagem->at(col,row).red();
-                    image->at(col+x,row+y).blue() = imagem->at(col,row).blue();
-                    image->at(col+x,row+y).green() = imagem->at(col,row).green();
+        Image* new_image = loadFromPNG(filename);   
+        for (int col = 0; col < new_image->width(); col++){
+            for (int row = 0; row < new_image->height(); row++){
+                if(new_image->at(col,row).red() != r || new_image->at(col,row).green() != g || imagem->at(col,row).blue() != b){
+                    // If new_image pixel color is different from (r, g, b) change image pixel
+                    image->at(col+x,row+y).red() = new_image->at(col,row).red();
+                    image->at(col+x,row+y).blue() = new_image->at(col,row).blue();
+                    image->at(col+x,row+y).green() = new_image->at(col,row).green();
                 }
             }
         }
@@ -219,12 +231,13 @@ namespace prog {
     }
 
     void Script::crop() {
+        // Crop the image, reducing it to all pixels contained in the rectangle defined by top-left corner (x, y), width w, and height h
         int x, y, w, h;
         input >> x >> y >> w >> h;
-        Image *cropped_image = new Image(w, h); // imagem onde vai ser gravado o resultado
+        Image *cropped_image = new Image(w, h); // Image where we save the cropped image
         for (int row = y; row < y+h; row++) {
             for(int col = x; col < x+w; col++) {
-                cropped_image->at(col-x, row-y) = image->at(col, row);
+                cropped_image->at(col-x, row-y) = image->at(col, row);  // The top-left corner of the cropped image (0, 0) will be the the top-left corner (x, y) of the original image
             }
         }
         clear_image_if_any();
@@ -232,10 +245,11 @@ namespace prog {
     }
 
     void Script::rotate_left() {
-        Image *rotate90 = new Image(image->height(), image->width());   // imagem onde vai ser guardado o resultado
+        // Rotate image left by 90 degrees
+        Image *rotate90 = new Image(image->height(), image->width());   // Image where we save the result
         for (int row = 0; row < image->height(); row++) {
             for (int col = 0; col < image->width(); col++) {
-                rotate90->at(row, col) = image->at(image->width()-col-1, row);
+                rotate90->at(row, col) = image->at(image->width()-col-1, row);  // The first line of the result image will be the last corner of the original image
             }
         }
         clear_image_if_any();
@@ -243,10 +257,11 @@ namespace prog {
     }
 
     void Script::rotate_right() {
-        Image *rotate90 = new Image(image->height(), image->width());   // imagem onde vai ser guardado o resultado
+        // Rotate image right by 90 degrees
+        Image *rotate90 = new Image(image->height(), image->width());   // Image where we save the result
         for (int row = 0; row < image->height(); row++) {
             for (int col = 0; col < image->width(); col++) {
-                rotate90->at(row, col) = image->at(col, image->height()-row-1);
+                rotate90->at(row, col) = image->at(col, image->height()-row-1); // The first line of the result image will be the inverse of the first column of the original image
             }
         }
         clear_image_if_any();
@@ -254,11 +269,13 @@ namespace prog {
     }
     
     void find_neighbourhoud(const Image* image, int ws, int row, int col, std::vector<Color> &median) {
+        /* 
+        Find the adjacent pixels of the middle pixel with a radius of ws/2
+        and append them to the vector "median"
+        */
         int aux = ws / 2;
-        int min_row = 0;
-        int min_col = 0;
-        int max_row = image->height() - 1;
-        int max_col = image->width() - 1;
+        int min_row = 0, min_col = 0;
+        int max_row = image->height() - 1, max_col = image->width() - 1;
         if (row - aux >= 0)
             min_row = row - aux;
         if (col - aux >= 0)
@@ -276,6 +293,11 @@ namespace prog {
     }
     
     Color calculate_median(const std::vector<Color>& median) {
+        /*
+        Calculate the median Color of pixels in the median vector sort each
+        RGB Color and finding the median value of each one and then return
+        the median Color 
+        */
         Color res;
         std::vector<int> reds, greens, blues;
         for (const Color& aux : median) {
@@ -299,15 +321,17 @@ namespace prog {
         }
         return res;
     }
+
     void Script::median_filter() {
+        // Apply a median filter with window size ws to the current image
         int ws;
         input >> ws;
         Image *modified = new Image(image->width(), image->height());
         for (int row = 0; row < image->height(); row++) {
             for (int col = 0; col < image->width(); col++) {
-                std::vector<Color> median;
-                find_neighbourhoud(image, ws, row, col, median);
-                modified->at(col, row) = calculate_median(median);
+                std::vector<Color> median;  // vector to place the adjecent pixels of the median pixel
+                find_neighbourhoud(image, ws, row, col, median);    // auxiliary function
+                modified->at(col, row) = calculate_median(median);  // auxiliary function
             }
         }
         clear_image_if_any();
