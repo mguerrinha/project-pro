@@ -41,3 +41,4 @@ namespace prog {
         return b_;
     }
 }
+

@@ -43,7 +43,7 @@ namespace prog {
     Image* loadFromXPM2(const std::string& file) {
         ifstream in(file);
         string line, caracter, str, useless;
-        map<string, Color> mapa;
+        map<char, Color> mapa;
         int png_height, png_width, colors, chars;
         getline(in,line); 
         getline(in,line);
@@ -53,15 +53,16 @@ namespace prog {
             getline(in, line);
             istringstream aux(line);
             aux >> caracter >> useless >> str;
-            mapa[caracter] = hex_to_color(str);
+            mapa[caracter.at(0)] = hex_to_color(str);
         }
         Image* image = new Image(png_width, png_height);
         for(int row = 0; row < png_height; row++){
             getline(in, line);
             for(int col = 0; col < png_width; col++){
-                image->at(col, row) = mapa[string({line.at(col)})];
+                image->at(col, row) = mapa[line.at(col)];
             }
         }
+
         return image;
     }
 
@@ -75,8 +76,8 @@ namespace prog {
                 ch = aux + '0';
             }
             else if (aux >= 10 && aux <= 15) {
-                aux -= 10;
                 ch = aux + 'a';
+                
             }
             res.push_back(ch);
             value_ /= 16;
@@ -85,42 +86,8 @@ namespace prog {
         return res;
     }
 
-    string color_to_hex(const Color& color) {
-        int r = color.red(), g = color.green(), b = color.blue();
-        std::string res;
-        res.append("#");
-        res.append(int_to_hex(r));
-        res.append(int_to_hex(g));
-        res.append(int_to_hex(b));
-        return res;
-    }
-
     void saveToXPM2(const std::string& file, const Image* image) {
-        ofstream out(file);
-        out << "! XPM2" << '\n';
-        int xpm2_height, xpm2_width, colors = 0;
-        xpm2_height = image->height();
-        xpm2_width = image->width();
-        map<Color, char> mapa;
-        for(int row = 0; row<xpm2_height; row++) {
-            for(int col = 0; col<xpm2_width; col++) {
-                if(mapa.count(image->at(col, row))==0) {
-                    mapa[image->at(col, row)] = 'a' + colors;
-                    colors++;
-                }
-            }
-        }
-        out << xpm2_width << " " << xpm2_height << " " << colors << " 1" << '\n'; 
-        for (const auto& pair : mapa) {
-            out << pair.second << " c " << color_to_hex(pair.first) << '\n';
-        }
-        for(int row = 0; row<xpm2_height; row++){
-            for(int col = 0; col<xpm2_width; col++){
-                out << mapa[image->at(col, row)];
-            }
-            out << '\n';
-        }
-        out.close();
+
     }
 }
 
