@@ -6,7 +6,11 @@ using namespace std;
 
 namespace prog {
 
-    int hex_to_decimal(const std::string& str) {
+    int hex_to_decimal(const std::string& str) { 
+        /*
+        Function to turn a string of two characters into a corresponding 
+        integer that will be used to create a corresponding Color
+        */
         int res = 0;
         int x = 0;
         for (int i = 0; i < 2; i++) {
@@ -25,6 +29,7 @@ namespace prog {
     }
 
     Color hex_to_color(const std::string& str) {
+        // Function that returns a Color corresponding to a string
         Color res;
         std::string str_;
         if (str[0] == '#')
@@ -41,6 +46,7 @@ namespace prog {
 
 
     Image* loadFromXPM2(const std::string& file) {
+        // Function that read an image stored in the XPM2 file format
         ifstream in(file);
         string line, caracter, str, useless;
         map<char, Color> mapa;
@@ -67,6 +73,10 @@ namespace prog {
     }
 
     string int_to_hex(const int& value) {
+        /*
+        Function that turns an integer into a corresponding string with 
+        two characters that will be used to create a corresponding Color      
+        */
         std::string res = "";
         char ch;
         int aux, value_ = value;
@@ -88,6 +98,7 @@ namespace prog {
     }
 
     string color_to_hex(const Color& color) {
+        // Function that returns a string corresponding to a Color
         int r = color.red(), g = color.green(), b = color.blue();
         std::string res;
         res.append("#");
@@ -98,6 +109,7 @@ namespace prog {
     }
 
     void saveToXPM2(const std::string& file, const Image* image) {
+        // Save image to the XPM2 file format
         ofstream out(file);
         out << "! XPM2" << '\n';
         int xpm2_height, xpm2_width, colors = 0;
