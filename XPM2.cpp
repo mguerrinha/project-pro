@@ -68,7 +68,6 @@ namespace prog {
                 image->at(col, row) = mapa[line.at(col)];
             }
         }
-
         return image;
     }
 
