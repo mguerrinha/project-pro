@@ -8,7 +8,8 @@ namespace prog {
 
     int hex_to_decimal(const std::string& str) { 
         /*
-        Function to turn a string of two characters into a corresponding 
+        Function that turns a string of two characters (that 
+        represents a hexadecimal value) into a corresponding 
         integer that will be used to create a corresponding Color
         */
         int res = 0;
@@ -29,7 +30,7 @@ namespace prog {
     }
 
     Color hex_to_color(const std::string& str) {
-        // Function that returns a Color corresponding to a string
+        // Function that receives a string in '#XXXXXX' format and returns a Color
         Color res;
         std::string str_;
         if (str[0] == '#')
@@ -51,18 +52,22 @@ namespace prog {
         string line, caracter, str, useless;
         map<char, Color> mapa;
         int png_height, png_width, colors, chars;
-        getline(in,line); 
-        getline(in,line);
-        istringstream aux(line);
-        aux >> png_width >> png_height >> colors >> chars; 
-        for(int i=0; i<colors; i++){
+        getline(in,line); //Reads the first line and ignores it
+        getline(in,line); //Reads the second line
+        istringstream aux(line); //Breaks the second line into words
+        aux >> png_width >> png_height >> colors >> chars; //Saves the info in second line
+
+        // For cicle to save the colors with its corresponding char in a map
+        for(int i=0; i<colors; i++){ 
             getline(in, line);
             istringstream aux(line);
             aux >> caracter >> useless >> str;
             mapa[caracter.at(0)] = hex_to_color(str);
         }
         Image* image = new Image(png_width, png_height);
-        for(int row = 0; row < png_height; row++){
+
+        // For cicles to create the image in PNG format
+        for(int row = 0; row < png_height; row++){ 
             getline(in, line);
             for(int col = 0; col < png_width; col++){
                 image->at(col, row) = mapa[line.at(col)];
@@ -73,8 +78,8 @@ namespace prog {
 
     string int_to_hex(const int& value) {
         /*
-        Function that turns an integer into a corresponding string with 
-        two characters that will be used to create a corresponding Color      
+        Function that turns an integer into a corresponding string with two characters 
+        that represent a hexadecimal value and will be used to create a corresponding Color      
         */
         std::string res = "";
         char ch;
@@ -97,7 +102,7 @@ namespace prog {
     }
 
     string color_to_hex(const Color& color) {
-        // Function that returns a string corresponding to a Color
+        // Function that returns a string in '#XXXXXX'format corresponding to a Color
         int r = color.red(), g = color.green(), b = color.blue();
         std::string res;
         res.append("#");
@@ -110,11 +115,13 @@ namespace prog {
     void saveToXPM2(const std::string& file, const Image* image) {
         // Save image to the XPM2 file format
         ofstream out(file);
-        out << "! XPM2" << '\n';
+        out << "! XPM2" << '\n'; //First line
         int xpm2_height, xpm2_width, colors = 0;
         xpm2_height = image->height();
         xpm2_width = image->width();
         map<Color, char> mapa;
+
+        // For cicles to save the number of colors
         for(int row = 0; row<xpm2_height; row++) {
             for(int col = 0; col<xpm2_width; col++) {
                 if(mapa.count(image->at(col, row))==0) {
@@ -123,10 +130,14 @@ namespace prog {
                 }
             }
         }
-        out << xpm2_width << " " << xpm2_height << " " << colors << " 1" << '\n'; 
+        out << xpm2_width << " " << xpm2_height << " " << colors << " 1" << '\n'; //Second line
+
+        // For cicle to create the XPM2 colors section
         for (const auto& pair : mapa) {
             out << pair.second << " c " << color_to_hex(pair.first) << '\n';
         }
+
+        // For cicle to create the image in XPM2 format
         for(int row = 0; row<xpm2_height; row++){
             for(int col = 0; col<xpm2_width; col++){
                 out << mapa[image->at(col, row)];
